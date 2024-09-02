@@ -5,7 +5,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-Route::get('/', [FrontendController::class, 'index']);
+Route::get('/', [FrontendController::class, 'index'])->name('home');
+Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::inertia('/contact', 'Frontend/Contact')->name('contact');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard'); 
