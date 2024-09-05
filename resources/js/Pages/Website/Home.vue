@@ -1,7 +1,7 @@
 <template>
     <div>
         <Frontend>
-            <Head title="Home Page" />
+            <Head title="Home" />
 
             <h1>This is Home page</h1>
         </Frontend>
@@ -9,6 +9,6 @@
 </template>
 
 <script setup>
-import Frontend from '@/Layouts/FrontendLayout.vue';
-import { Head } from '@inertiajs/vue3'
+import { Head } from '@inertiajs/vue3';
+import Frontend from '@/Layouts/WebsiteLayout.vue';
 </script>
