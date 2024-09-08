@@ -72,12 +72,20 @@ const submit = () => {
                             <Link
                                 v-if="canResetPassword"
                                 :href="route('password.request')"
-                                class=""
+                                class="link-info"
                             >
                                 Forgot your password?
                             </Link>
                         </p>
-                        <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
+                        <p>Don't have an account?
+                            <Link
+                                v-if="canResetPassword"
+                                :href="route('register')"
+                                class="link-info"
+                            >
+                            Register here
+                            </Link>
+                        </p>
 
                     </form>
 
