@@ -16,17 +16,25 @@ class AdminSeeder extends Seeder
         //
         Admin::factory()->create([
             'name' => 'Admin User',
-            'email' => 'admin@iosoup.com',
+            'email' => 'admin@boostskill.com',
             'password' => '123',
-            'admintype' => 'ADMN',
+            'admintype' => ADMIN_TYPE_ADMIN,
         ]);
 
         //
         Admin::factory()->create([
-            'name' => 'Manager User',
-            'email' => 'manager@iosoup.com',
+            'name' => 'BoostSkill Manager',
+            'email' => 'manager@boostskill.com',
             'password' => '123',
-            'admintype' => 'MNGR',
+            'admintype' => ADMIN_TYPE_MANAGER,
+        ]);
+
+        //
+        Admin::factory()->create([
+            'name' => 'BoostSkill Accountant',
+            'email' => 'accountant@boostskill.com',
+            'password' => '123',
+            'admintype' => ADMIN_TYPE_ACCOUNTANT,
         ]);
     }
 }

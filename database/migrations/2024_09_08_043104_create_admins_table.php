@@ -18,6 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('admintype');
+            $table->char('is_active')->default('Y');
             $table->rememberToken();
             $table->timestamps();
         });
