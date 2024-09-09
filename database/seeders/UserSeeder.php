@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'user@iosoup.com',
             'password' => '123',
+            'usertype' => 'STDN',
         ]);
     }
 }

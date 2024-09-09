@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
             'name' => 'Admin User',
             'email' => 'admin@iosoup.com',
             'password' => '123',
-            'role' => 'ADMN',
+            'admintype' => 'ADMN',
         ]);
     }
 }
