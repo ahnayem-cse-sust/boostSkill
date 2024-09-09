@@ -20,5 +20,13 @@ class AdminSeeder extends Seeder
             'password' => '123',
             'admintype' => 'ADMN',
         ]);
+
+        //
+        Admin::factory()->create([
+            'name' => 'Manager User',
+            'email' => 'manager@iosoup.com',
+            'password' => '123',
+            'admintype' => 'MNGR',
+        ]);
     }
 }
