@@ -20,11 +20,12 @@ class ProfileService extends BaseService
     }
 
     public function saveAdminProfileData($request){
-        dd($request);
-        $data = Admin::where('id',$request->id)->first()->toArray();
+        $data = Admin::where('id',$request->id)->first();
         $data->name = $request->name;
+        $data->email = $request->email;
+        $data->save();
 
-        return $data;
+        return $this->success('Successfully updated.',$data->toArray());
     }
 
 }

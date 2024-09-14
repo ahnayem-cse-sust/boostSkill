@@ -28,7 +28,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     })->middleware(['verified'])->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::post('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     // Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])

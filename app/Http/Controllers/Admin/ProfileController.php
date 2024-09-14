@@ -40,11 +40,12 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request)
     {
-        if($request->validated()){
-            $this->service->saveAdminProfileData($request);
+        $validate = $request->validated();
+        if($validate){
+            return $this->service->saveAdminProfileData($request);
         }
 
-        return Redirect::route('admin.profile.index');
+        return $this->failure($validate);
     }
 
     /**
