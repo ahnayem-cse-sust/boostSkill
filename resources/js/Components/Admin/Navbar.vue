@@ -37,5 +37,10 @@ const menuItems = [
 </script>
 
 <style scoped>
-
+.navbar{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: -webkit-fill-available;
+}
 </style>
