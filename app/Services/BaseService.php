@@ -1,8 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
 
-abstract class Controller
+namespace App\Services;
+
+
+abstract class BaseService
 {
     protected function success($message, $data = [], $status = 200)
     {
@@ -20,4 +22,5 @@ abstract class Controller
             'message' => $message,
         ], $status);
     }
+    
 }

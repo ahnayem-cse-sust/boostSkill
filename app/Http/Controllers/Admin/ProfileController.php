@@ -4,41 +4,48 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileUpdateRequest;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Services\ProfileService;
+use Illuminate\Contracts\Auth\Guard;
 
 class ProfileController extends Controller
 {
-    /**
-     * Display the user's profile form.
-     */
-    public function edit(Request $request): Response
+    
+    private $service;
+    public function __construct(ProfileService $profileService)
     {
-        return Inertia::render('Admin/Profile/Edit', [
-            'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
+        $this->service = $profileService;
+//        $this->middleware('auth');
+    }
+
+    /**
+     * Display the user's profile information.
+     */
+    public function index()
+    {
+        $data = $this->service->getAdminProfileData(Auth::user()->id);
+        return Inertia::render('Admin/Profile', [
             'status' => session('status'),
+            'profileData' => $data
         ]);
     }
 
     /**
      * Update the user's profile information.
      */
-    public function update(ProfileUpdateRequest $request): RedirectResponse
+    public function update(ProfileUpdateRequest $request)
     {
-        $request->user('admin')->fill($request->validated());
-
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
+        $validate = $request->validated();
+        if($validate){
+            return $this->service->saveAdminProfileData($request);
         }
 
-        $request->user()->save();
-
-        return Redirect::route('admin.profile.edit');
+        return $this->failure($validate);
     }
 
     /**

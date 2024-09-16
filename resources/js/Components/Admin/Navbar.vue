@@ -10,11 +10,9 @@
                 
             </ul>
             <ul class="navbar-nav mb-2 mb-lg-0 ">
+                <i class="fad fa-laugh-wink"></i>
                 <li class="nav-item">
-                    <Link :href="route('admin.profile.edit')"> Profile </Link>
-                    <Link :href="route('admin.logout')" method="post" as="button">
-                        Log Out
-                    </Link>
+                    <ProfileDropDown :items="menuItems"/>
                 </li>
             </ul>
             </div>
@@ -23,10 +21,26 @@
 </template>
 
 <script setup>
-import {Link} from '@inertiajs/vue3';
-
+import ProfileDropDown from '../Common/ProfileDropDown.vue';
+const menuItems = [
+                    {
+                        title: 'Profile',
+                        link: route('admin.profile.index'),
+                        method: "get"
+                    },
+                    {
+                        title: 'Logout',
+                        link: route('admin.logout'),
+                        method: "post"
+                    },
+                ];
 </script>
 
 <style scoped>
-
+.navbar{
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: -webkit-fill-available;
+}
 </style>
