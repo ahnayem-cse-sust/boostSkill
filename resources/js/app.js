@@ -24,6 +24,8 @@ dom.watch();
 //import 'vue-toast-notification/dist/theme-default.css';
 import 'vue-toast-notification/dist/theme-bootstrap.css';
 
+import 'animate.css';
+
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
 createInertiaApp({
