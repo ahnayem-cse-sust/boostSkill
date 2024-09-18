@@ -36,6 +36,7 @@ function sidebarHide(){
     top: 0px;
     right: 0px;
     width: -webkit-fill-available;
+    transition: 0.5s;
 }
 .low-margin{
     margin-left: 83px;
