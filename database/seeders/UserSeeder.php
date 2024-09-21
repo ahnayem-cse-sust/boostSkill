@@ -16,18 +16,22 @@ class UserSeeder extends Seeder
     {
         //
         User::factory()->create([
-            'name' => 'BoostSkill Teacher',
+            'first_name' => 'BoostSkill',
+            'last_name' => 'Teacher',
             'email' => 'teacher@boostskill.com',
             'password' => '123',
-            'usertype' => USER_TYPE_TEACHER,
+            'user_type' => USER_TYPE_TEACHER,
+            'is_active' => IS_ACTIVE_YES
         ]);
 
         //
         User::factory()->create([
-            'name' => 'BoostSkill Student',
+            'first_name' => 'BoostSkill',
+            'last_name' => 'Student',
             'email' => 'student@boostskill.com',
             'password' => '123',
-            'usertype' => USER_TYPE_STUDENT,
+            'user_type' => USER_TYPE_STUDENT,
+            'is_active' => IS_ACTIVE_YES
         ]);
     }
 }
