@@ -12,6 +12,11 @@ use Inertia\Response;
 
 class PasswordResetLinkController extends Controller
 {
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_USER;
+    }
+    
     /**
      * Display the password reset link request view.
      */

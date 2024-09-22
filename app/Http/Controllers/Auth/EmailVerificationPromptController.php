@@ -10,6 +10,11 @@ use Inertia\Response;
 
 class EmailVerificationPromptController extends Controller
 {
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_USER;
+    }
+    
     /**
      * Display the email verification prompt.
      */

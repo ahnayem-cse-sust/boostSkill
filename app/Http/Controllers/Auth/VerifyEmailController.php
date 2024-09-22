@@ -9,6 +9,11 @@ use Illuminate\Http\RedirectResponse;
 
 class VerifyEmailController extends Controller
 {
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_USER;
+    }
+    
     /**
      * Mark the authenticated user's email address as verified.
      */

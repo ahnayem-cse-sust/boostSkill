@@ -13,6 +13,12 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_USER;
+    }
+
     /**
      * Display the user's profile form.
      */

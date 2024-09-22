@@ -15,7 +15,12 @@ use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
-
+    
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_ADMIN;
+    }
+    
     /**
      * Handle an incoming registration request.
      *

@@ -22,12 +22,18 @@ class ProfileController extends Controller
         $this->service = $profileService;
 //        $this->middleware('auth');
     }
+    
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_ADMIN;
+    }
 
     /**
      * Display the user's profile information.
      */
     public function index()
     {
+        if($this->hasPermission(PERMISSION_TYPE_READ))
         $data = $this->service->getAdminProfileData(Auth::user()->id);
         return Inertia::render('Admin/Profile', [
             'status' => session('status'),

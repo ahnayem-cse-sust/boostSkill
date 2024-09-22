@@ -12,6 +12,13 @@ use Inertia\Response;
 
 class ConfirmablePasswordController extends Controller
 {
+    
+
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_USER;
+    }
+    
     /**
      * Show the confirm password view.
      */
