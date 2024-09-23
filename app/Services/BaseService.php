@@ -10,6 +10,7 @@ abstract class BaseService
     {
         return response([
             'success' => true,
+            'status_code' => $status,
             'data' => $data,
             'message' => $message,
         ], $status);
@@ -19,6 +20,7 @@ abstract class BaseService
     {
         return response([
             'success' => false,
+            'status_code' => $status,
             'message' => $message,
         ], $status);
     }
