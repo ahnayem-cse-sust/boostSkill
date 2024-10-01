@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class EmailVerificationNotificationController extends Controller
 {
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_USER;
+    }
+    
     /**
      * Send a new email verification notification.
      */

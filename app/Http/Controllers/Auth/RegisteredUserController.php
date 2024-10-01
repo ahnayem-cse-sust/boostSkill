@@ -15,6 +15,11 @@ use Inertia\Response;
 
 class RegisteredUserController extends Controller
 {
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_USER;
+    }
+    
     /**
      * Display the registration view.
      */

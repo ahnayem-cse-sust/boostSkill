@@ -13,6 +13,12 @@ use Inertia\Response;
 
 class AuthenticatedSessionController extends Controller
 {
+    
+    public function setModuleName()
+    {
+        $this->moduleName = MODULE_NAME_ADMIN;
+    }
+    
     /**
      * Display the login view.
      */
