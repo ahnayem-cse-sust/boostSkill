@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { Link } from "@inertiajs/vue3";
-
-const { onTap } = defineProps<{
+defineProps<{
     outlined?: boolean;
     onTap?: () => void;
     name?: string;
