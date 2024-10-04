@@ -30,10 +30,13 @@ defineProps({
 }
 
 .styled-image-wrapper .content {
+    overflow: hidden;
     width: 100%;
     height: 100%;
     border: var(--_border) solid var(--color-bg);
     background: hsl(0, 0%, 94%);
+
+    border-radius: var(--rounded-lg);
 }
 .styled-image-wrapper::after,
 .styled-image-wrapper::before {
@@ -45,6 +48,8 @@ defineProps({
     background: var(--color-brand);
     position: absolute;
     z-index: -1;
+
+    border-radius: calc(var(--rounded-md) + var(--_border) + var(--_x));
 }
 .styled-image-wrapper::after {
     top: calc(var(--_y) * -1);
