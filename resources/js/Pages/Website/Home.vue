@@ -3,6 +3,8 @@
         <Frontend class="container">
             <Head title="Home" />
 
+            <Hero />
+
             <h1 style="margin-block: 1rem">Components style guide</h1>
             <Button
                 name="testButtonName"
@@ -96,6 +98,7 @@
 <script setup>
 import Button from "@/Components/Button.vue";
 import Details from "@/Components/Website/Details.vue";
+import Hero from "@/Components/Website/Hero.vue";
 import StyledWrapper from "@/Components/Website/StyledWrapper.vue";
 import Tag from "@/Components/Website/Tag.vue";
 import TeacherCard from "@/Components/Website/TeacherCard.vue";

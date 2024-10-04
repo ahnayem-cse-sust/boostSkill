@@ -19,6 +19,7 @@ import Navbar from "@/Components/Website/Navbar.vue";
     --ff-heading-3: "Poppins", sans-serif;
 
     /* Colors */
+    --color-white-800: hsl(0, 0%, 85%);
     --color-text: hsl(0, 0%, 0%);
     --color-bg: hsl(0, 0%, 100%);
     --color-brand: hsl(158, 95%, 34%);
@@ -124,6 +125,10 @@ video {
 }
 
 /* Utilities */
+
+.text-brand {
+    color: var(--color-brand);
+}
 
 /* components */
 
