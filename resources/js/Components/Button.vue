@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Link } from "@inertiajs/vue3";
 defineProps<{
+    square?: boolean;
     outlined?: boolean;
     onTap?: () => void;
     name?: string;
@@ -13,6 +14,7 @@ defineProps<{
         <button
             type="button"
             :class="[outlined ? 'outlined' : 'primary']"
+            :style="square && 'aspect-ratio: 1'"
             @click="$emit('onTap')"
         >
             <slot />
@@ -21,6 +23,7 @@ defineProps<{
     <button
         type="button"
         :class="[outlined ? 'outlined' : 'primary']"
+        :style="square && 'aspect-ratio: 1'"
         v-else
         :name
         @click="onTap()"
