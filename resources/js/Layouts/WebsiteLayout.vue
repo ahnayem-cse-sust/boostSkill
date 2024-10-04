@@ -10,11 +10,13 @@ import Navbar from "@/Components/Website/Navbar.vue";
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 :root {
-    --ff-base: "Manrope", sans-serif;
-    --ff-heading: "Manrope", sans-serif;
-    --ff-heading-2: "Manrope", sans-serif;
-    --ff-heading-3: "Manrope", sans-serif;
+    --ff-base: "Poppins", sans-serif;
+    --ff-heading: "Poppins", sans-serif;
+    --ff-heading-2: "Poppins", sans-serif;
+    --ff-heading-3: "Poppins", sans-serif;
 
     /* Colors */
     --color-text: hsl(0, 0%, 0%);
