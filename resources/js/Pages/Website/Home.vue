@@ -1,6 +1,6 @@
 <template>
     <div>
-        <Frontend>
+        <Frontend class="container">
             <Head title="Home" />
 
             <h1 style="margin-block: 1rem">Components style guide</h1>
@@ -31,6 +31,9 @@
 
             <div class="card">card</div>
             <Tag>skilled instructor</Tag>
+            <Tag style="background: var(--color-brand); color: var(--color-bg)"
+                >skilled instructor</Tag
+            >
             <input
                 type="text"
                 name="text"
@@ -63,18 +66,19 @@
                 Thousand of Top Online Courses
                 <span class="styled-text">Now in One Place</span>
             </h2>
-
-            <h4
+            <img
+                class="styled-border-md"
                 style="
-                    display: inline-block;
-                    color: var(--color-brand);
-                    margin-top: 2rem;
-                    margin-bottom: 0.5rem;
+                    width: 20rem;
+                    height: 20rem;
+                    aspect-ratio: 1;
+                    display: block;
                 "
-            >
-                Customized image Wrapper style
-            </h4>
-            <StyledWrapper size="20"
+                src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                alt=""
+            />
+
+            <StyledWrapper size="20" style="margin-block: 1rem"
                 ><img
                     src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                     alt=""

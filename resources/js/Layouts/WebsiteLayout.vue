@@ -24,6 +24,13 @@ import Navbar from "@/Components/Website/Navbar.vue";
 
     /* Easing */
     --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+    /* Roundness */
+    --rounded-sm: 0.125rem;
+    --rounded: 0.25rem;
+    --rounded-md: 0.5rem;
+    --rounded-lg: 1rem;
+    --rounded-full: 999px;
 }
 *,
 *::after,
@@ -114,6 +121,8 @@ video {
     object-fit: cover;
 }
 
+/* Utilities */
+
 /* components */
 
 .card {
@@ -143,6 +152,18 @@ video {
     color: var(--color-bg);
 }
 
+.styled-border-sm {
+    border-top-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+}
+.styled-border-md {
+    border-top-left-radius: 4rem;
+    border-bottom-right-radius: 4rem;
+}
+.styled-border-lg {
+    border-top-left-radius: 6rem;
+    border-bottom-right-radius: 6rem;
+}
 
 input[type="text"] {
     background: var(--color-bg);
