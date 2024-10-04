@@ -37,6 +37,8 @@ defineProps({
     display: flex;
     position: relative;
     width: fit-content;
+    overflow: hidden;
+    border-radius: var(--rounded-md);
 }
 
 .teacher-card__image {
@@ -46,15 +48,21 @@ defineProps({
 }
 
 .teacher-card__info {
+    transition: all 0.3s var(--ease-out-expo);
     padding: 0.5rem 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
+
+    min-height: 5rem;
     bottom: 0;
     left: 0;
     right: 0;
+}
+.teacher-card:hover .teacher-card__info {
+    min-height: 100%;
 }
 
 .teacher-card__background {
