@@ -16,8 +16,11 @@ class CourseService extends BaseService
         
     }
 
-    public function store(){
-        dd("NNNN");
+    public function store($data){
+        if(Course::create($data)){
+            return $this->success('Course Created Successfully');
+        }
+        return $this->failure('Someting Went Wrong!!');
     }
 
 
