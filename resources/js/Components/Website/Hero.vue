@@ -57,7 +57,7 @@ import Button from "../Button.vue";
 }
 
 .hero__title {
-    color: var(--color-bg);
+    color: var(--color-white);
     text-transform: uppercase;
     font-weight: bold;
     font-size: 4rem;
@@ -87,7 +87,7 @@ import Button from "../Button.vue";
     gap: 0.5rem;
     padding: 0.5rem;
 
-    color: var(--color-bg);
+    color: var(--color-white);
 }
 .hero__video-btn p {
     max-width: 10ch;

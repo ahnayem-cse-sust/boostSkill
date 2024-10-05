@@ -55,7 +55,7 @@ button.primary {
     --_y: 3px;
     --_x: 2px;
     background-color: var(--color-brand);
-    color: var(--color-bg);
+    color: var(--color-white);
 
     -webkit-box-shadow: var(--_x) var(--_y) 0px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: var(--_x) var(--_y) 0px 0px rgba(0, 0, 0, 0.75);
@@ -78,6 +78,6 @@ button.primary:hover {
 }
 button.outlined:hover {
     background: var(--color-brand);
-    color: var(--color-bg);
+    color: var(--color-white);
 }
 </style>

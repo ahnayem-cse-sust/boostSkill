@@ -18,10 +18,14 @@ import Navbar from "@/Components/Website/Navbar.vue";
     --ff-heading-2: "Poppins", sans-serif;
     --ff-heading-3: "Poppins", sans-serif;
 
+    --fs-h1: 3rem;
+    --fs-h2: 2rem;
+
     /* Colors */
     --color-white-800: hsl(0, 0%, 85%);
+    --color-white: hsl(0, 0%, 100%);
     --color-text: hsl(0, 0%, 0%);
-    --color-bg: hsl(0, 0%, 100%);
+    --color-bg: var(--color-white);
     --color-brand: hsl(158, 95%, 34%);
     --color-border: hsl(0, 0%, 60%);
 
@@ -156,7 +160,7 @@ video {
     border-top-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
     background: var(--color-brand);
-    color: var(--color-bg);
+    color: var(--color-white);
 }
 
 .styled-border-sm {

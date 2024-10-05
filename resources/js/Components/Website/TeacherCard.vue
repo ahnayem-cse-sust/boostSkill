@@ -75,11 +75,11 @@ defineProps({
     text-transform: capitalize;
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--color-bg);
+    color: var(--color-white);
     z-index: 1;
 }
 .teacher-card__title {
-    color: var(--color-bg);
+    color: var(--color-white);
     z-index: 1;
     margin-top: -0.35rem;
 }
