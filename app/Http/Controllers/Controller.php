@@ -11,21 +11,26 @@ abstract class Controller
     public $moduleName;
     abstract protected function setModuleName();
 
+    public function __construct()
+    {
+        $this->setModuleName();
+    }
+
     protected function hasPermission($permissionName){
         $user = Auth::user();
         $userPermission = UserPermission::where('user_id',$user->id)
                                         ->where('user_type',$user->user_type)
                                         ->where('module_name',$this->moduleName)
-                                        ->where('permission_type',$permissionName);
+                                        ->where('permission_type',$permissionName)->first();
         if($userPermission){
             if($userPermission->has_permission == 'Y')
                 return true;
             elseif($userPermission->has_permission == 'N')
                 return false; 
-        }                        
+        }                      
         $userTypePermission = UserTypePermission::where('module_name',$this->moduleName)
                                                 ->where('user_type',$user->user_type)
-                                                ->where('permission_type',$permissionName);
+                                                ->where('permission_type',$permissionName)->first();
         if($userTypePermission && $userTypePermission->has_permission == 'Y'){
             return true;
         }
@@ -49,5 +54,9 @@ abstract class Controller
             'status_code' => $status,
             'message' => $message,
         ], $status);
+    }
+
+    protected function unauthorizedPageResponse(){
+        dd('Not permited for this operation');
     }
 }
