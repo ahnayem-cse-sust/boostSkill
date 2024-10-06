@@ -23,5 +23,22 @@ class CourseService extends BaseService
         return $this->failure('Someting Went Wrong!!');
     }
 
+    public function getAllCourses($user_type){
+
+        switch ($user_type) {
+            case USER_TYPE_STUDENT:
+              //code block
+              break;
+            case USER_TYPE_TEACHER:
+              //code block;
+              break;
+            case AD:
+              //code block
+              break;
+            default:
+              //code block
+          }
+    }
+
 
 }

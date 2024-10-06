@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CourseRequest;
-use App\Models\Course;
 use App\Services\CourseService;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -33,7 +33,6 @@ class CourseController extends Controller
     {
         
         $validated = $request->validated();
-        dd($validated);
 
         if($this->hasPermission(PERMISSION_TYPE_CREATE)){
             $response = $this->service->store($request->all());
@@ -41,6 +40,17 @@ class CourseController extends Controller
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
             ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
+
+    public function allCourses()
+    {
+        if($this->hasPermission(PERMISSION_TYPE_READ)){
+            $user = Auth::user();
+            $response = $this->service->getAllCourses($user->user_type);
+            dd($response);
         } else{
             return $this->unauthorizedPageResponse();
         }
