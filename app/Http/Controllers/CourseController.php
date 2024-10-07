@@ -48,9 +48,24 @@ class CourseController extends Controller
     public function allCourses()
     {
         if($this->hasPermission(PERMISSION_TYPE_READ)){
-            $user = Auth::user();
-            $response = $this->service->getAllCourses($user->user_type);
-            dd($response);
+            $response = $this->service->getAllCourses();
+            return Inertia::render('Admin/Course/List',[
+               'courses' => $response['data']
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
+
+    public function details($id)
+    {
+        // dd($id);
+        if($this->hasPermission(PERMISSION_TYPE_READ)){
+            $response = $this->service->getCourse($id);
+            // dd($response);
+            return Inertia::render('Admin/Course/Details',[
+               'course' => $response['data']
+            ]);
         } else{
             return $this->unauthorizedPageResponse();
         }
