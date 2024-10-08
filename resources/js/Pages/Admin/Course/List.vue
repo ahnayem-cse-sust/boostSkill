@@ -34,14 +34,14 @@ defineProps({
         </thead>
         <tbody>
             <tr v-for="(course, index) in courses" :key="index">
-            <th scope="row">{{ index }}</th>
+            <th scope="row">{{ index+1 }}</th>
             <td>{{ course.title }}</td>
             <td>{{ course.course_type }}</td>
             <td>{{ course.teacher_id }}</td>
             <td>{{ course.price }}</td> 
             <td>
-                <a :href="route('admin.course.details',index)">details</a>
-                <a href="#">edit</a>
+                <a :href="route('admin.course.details',course.id)">details</a>
+                <a :href="route('admin.course.edit',course.id)">edit</a>
             </td> 
             </tr>
         </tbody>

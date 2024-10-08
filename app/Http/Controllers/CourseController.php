@@ -70,4 +70,32 @@ class CourseController extends Controller
             return $this->unauthorizedPageResponse();
         }
     }
+
+    public function edit($id)
+    {
+        // dd($id);
+        if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
+            $response = $this->service->getCourse($id);
+            // dd($response);
+            return Inertia::render('Admin/Course/Edit',[
+               'course' => $response['data']
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
+
+    public function update($id, CourseRequest $request)
+    {
+        // dd($id);
+        if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
+            $response = $this->service->updateCourse($id,$request->all());
+            return redirect()->route('admin.course.list')->with([
+                'message' => $response['message'],
+                'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
 }

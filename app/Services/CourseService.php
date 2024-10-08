@@ -33,10 +33,18 @@ class CourseService extends BaseService
     }
 
     public function getCourse($id){
-      $course = Course::where('id',$id)->get();
+        $course = Course::where('id',$id)->get();
 
-      return $this->success('Course successfully retrived',$course);
-  }
+        return $this->success('Course successfully retrived',$course);
+    }
+
+    public function updateCourse($id, $data){
+        $course = Course::where('id',$id)->first();
+        if($course->update($data)){
+            return $this->success($data['title'].' Updated Successfully');
+        }
+        return $this->failure('Someting Went Wrong!!');
+    }
 
 
 }

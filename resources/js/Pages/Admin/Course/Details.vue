@@ -3,21 +3,17 @@ import AdminLayout from '@/Layouts/AdminLayout.vue';
 import { Head } from '@inertiajs/vue3';
 import { onMounted } from 'vue';
 
-defineProps({
+const props = defineProps({
     course: {
         type: Array,
     },
 });
 
 onMounted(() => {
-    console.log($props.course);
+    // console.log(props.course[0].title);
 })
 
-const save = () => {
-    form.post(route("admin.course.store"), {
-        onFinish: () => form.reset(),
-    });
-};
+
 
 </script>
 
@@ -31,38 +27,38 @@ const save = () => {
 
         <h2>Course Details</h2>
 
-        <form class="row g-3" @submit.prevent="save">
+        <form class="row g-3">
             <div class="col-md-12">
                 <label for="title" class="form-label">Course Title</label>
-                <input disabled v-model="course.title" type="text" class="form-control" id="title" >
+                <input disabled v-model="course[0].title" type="text" class="form-control" id="title" >
             </div>
             <div class="col-md-6">
                 <label for="course_category" class="form-label">Course Category</label>
-                <input disabled v-model="course.course_category_id" type="text" class="form-control" id="course_category">
+                <input disabled v-model="course[0].course_category_id" type="text" class="form-control" id="course_category">
             </div>
             <div class="col-md-6">
                 <label for="course_type" class="form-label">Course Type</label>
-                <input disabled v-model="course.course_type" type="text" class="form-control" id="course_type">
+                <input disabled v-model="course[0].course_type" type="text" class="form-control" id="course_type">
             </div>
             <div class="col-md-6">
                 <label for="course_level" class="form-label">Course Level</label>
-                <input disabled v-model="course.course_level" type="text" class="form-control" id="course_level">
+                <input disabled v-model="course[0].course_level" type="text" class="form-control" id="course_level">
             </div>
             <div class="col-md-6">
                 <label for="teacher_id" class="form-label">Instructor</label>
-                <input disabled v-model="course.teacher_id" type="text" class="form-control" id="teacher_id">
+                <input disabled v-model="course[0].teacher_id" type="text" class="form-control" id="teacher_id">
             </div>
             <div class="col-md-6">
                 <label for="total_hours" class="form-label">Total Hours</label>
-                <input disabled v-model="course.total_hours" type="text" class="form-control" id="total_hours">
+                <input disabled v-model="course[0].total_hours" type="text" class="form-control" id="total_hours">
             </div>
             <div class="col-md-6">
                 <label for="course_type" class="form-label">Course Type</label>
-                <input disabled v-model="course.course_type" type="text" class="form-control" id="course_type">
+                <input disabled v-model="course[0].course_type" type="text" class="form-control" id="course_type">
             </div>
             <div class="col-md-6">
                 <label for="course_type" class="form-label">Course Type</label>
-                <input disabled v-model="course.course_type" type="text" class="form-control" id="course_type">
+                <input disabled v-model="course[0].course_type" type="text" class="form-control" id="course_type">
             </div>
 
         </form>
