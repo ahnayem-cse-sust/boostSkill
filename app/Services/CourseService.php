@@ -23,5 +23,28 @@ class CourseService extends BaseService
         return $this->failure('Someting Went Wrong!!');
     }
 
+    public function getAllCourses(){
+        $courses = Course::where(function($q){
+          $q->where('status',COURSE_STATUS_ACTIVE)
+            ->orWhere('status',null);
+        })->get();
+
+        return $this->success('Courses successfully retrived',$courses);
+    }
+
+    public function getCourse($id){
+        $course = Course::where('id',$id)->get();
+
+        return $this->success('Course successfully retrived',$course);
+    }
+
+    public function updateCourse($id, $data){
+        $course = Course::where('id',$id)->first();
+        if($course->update($data)){
+            return $this->success($data['title'].' Updated Successfully');
+        }
+        return $this->failure('Someting Went Wrong!!');
+    }
+
 
 }

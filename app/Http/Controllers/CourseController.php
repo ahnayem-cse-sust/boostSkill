@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CourseRequest;
-use App\Models\Course;
 use App\Services\CourseService;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -33,11 +33,64 @@ class CourseController extends Controller
     {
         
         $validated = $request->validated();
-        dd($validated);
 
         if($this->hasPermission(PERMISSION_TYPE_CREATE)){
             $response = $this->service->store($request->all());
             return redirect()->route('admin.course.create')->with([
+                'message' => $response['message'],
+                'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
+
+    public function allCourses()
+    {
+        if($this->hasPermission(PERMISSION_TYPE_READ)){
+            $response = $this->service->getAllCourses();
+            return Inertia::render('Admin/Course/List',[
+               'courses' => $response['data']
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
+
+    public function details($id)
+    {
+        // dd($id);
+        if($this->hasPermission(PERMISSION_TYPE_READ)){
+            $response = $this->service->getCourse($id);
+            // dd($response);
+            return Inertia::render('Admin/Course/Details',[
+               'course' => $response['data']
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
+
+    public function edit($id)
+    {
+        // dd($id);
+        if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
+            $response = $this->service->getCourse($id);
+            // dd($response);
+            return Inertia::render('Admin/Course/Edit',[
+               'course' => $response['data']
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+    }
+
+    public function update($id, CourseRequest $request)
+    {
+        // dd($id);
+        if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
+            $response = $this->service->updateCourse($id,$request->all());
+            return redirect()->route('admin.course.list')->with([
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
             ]);

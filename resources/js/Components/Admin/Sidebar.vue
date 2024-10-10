@@ -31,6 +31,10 @@
               <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
               <span class="sidebar-ttl">Create Course</span>
             </a></li>
+            <li><a :href="route('admin.course.list')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">Courses</span>
+            </a></li>
           </ul>
         </div>
       </li>
