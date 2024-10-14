@@ -3,9 +3,12 @@ import { Link } from "@inertiajs/vue3";
 defineProps<{
     square?: boolean;
     outlined?: boolean;
-    onTap?: () => void;
     name?: string;
     to?: string;
+}>();
+
+defineEmits<{
+    (event: "onTap"): void;
 }>();
 </script>
 
@@ -26,7 +29,7 @@ defineProps<{
         :style="square && 'aspect-ratio: 1'"
         v-else
         :name
-        @click="onTap()"
+        @click="$emit('onTap')"
     >
         <slot />
     </button>

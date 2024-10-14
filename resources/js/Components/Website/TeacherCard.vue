@@ -74,7 +74,8 @@ defineProps({
 .teacher-card__name {
     text-transform: capitalize;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: 0.035rem;
     color: var(--color-white);
     z-index: 1;
 }

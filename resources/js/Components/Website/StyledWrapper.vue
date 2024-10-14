@@ -1,7 +1,7 @@
-<script setup>
-defineProps({
-    size: Number, // in rem;; If not specified it will be 100%; Better to not specify when using with grid layout
-});
+<script setup lang="ts">
+defineProps<{
+    size: number; // in rem (do not type rem in size prop, provide number only);; If not specified it will be 100%; Better to not specify when using with grid layout
+}>();
 </script>
 
 <template>
@@ -35,6 +35,7 @@ defineProps({
     height: 100%;
     border: var(--_border) solid var(--color-bg);
     background: hsl(0, 0%, 94%);
+    position: relative;
 
     border-radius: var(--rounded-lg);
 }

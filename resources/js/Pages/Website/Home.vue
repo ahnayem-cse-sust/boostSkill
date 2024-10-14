@@ -3,8 +3,17 @@
         <Frontend class="container">
             <Head title="Home" />
 
-            <Hero />
+            <!-- <Hero />
             <Achievements />
+            <PopularCategories />
+            <CompaniesShowcase />
+            <AboutUs />
+            <TopInstructors />
+            <FAQ />
+            <BecomeAStudent />
+            <Cta />
+            <Footer /> -->
+            <PopularCourses />
 
             <!-- <section class="style-guide">
                 <h1 style="margin-block: 1rem">Components style guide</h1>
@@ -101,8 +110,17 @@
 // import StyledWrapper from "@/Components/Website/StyledWrapper.vue";
 // import Tag from "@/Components/Website/Tag.vue";
 // import TeacherCard from "@/Components/Website/TeacherCard.vue";
-import Achievements from "@/Components/Website/Achievements.vue";
-import Hero from "@/Components/Website/Hero.vue";
+// import AboutUs from "@/Components/Website/AboutUs.vue";
+// import Achievements from "@/Components/Website/Achievements.vue";
+// import BecomeAStudent from "@/Components/Website/BecomeAStudent.vue";
+// import CompaniesShowcase from "@/Components/Website/CompaniesShowcase.vue";
+// import Cta from "@/Components/Website/Cta.vue";
+// import Hero from "@/Components/Website/Hero.vue";
+// import FAQ from "@/Components/Website/home/FAQ.vue";
+// import Footer from "@/Components/Website/home/Footer.vue";
+// import PopularCategories from "@/Components/Website/PopularCategories.vue";
+// import TopInstructors from "@/Components/Website/TopInstructors.vue";
+import PopularCourses from "@/Components/Website/home/PopularCourses.vue";
 import Frontend from "@/Layouts/WebsiteLayout.vue";
 import { Head } from "@inertiajs/vue3";
 </script>

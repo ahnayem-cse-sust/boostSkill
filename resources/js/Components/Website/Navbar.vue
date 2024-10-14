@@ -1,31 +1,71 @@
 <template>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">BoostSkill</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <a class="navbar-brand" href="#" style="color: var(--color-brand)"
+                ><BrandLogo variant="full"
+            /></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <Link class="nav-link active" aria-current="page" :href="route('website.home')">Home</Link>
-                </li>
-                <li class="nav-item">
-                    <Link class="nav-link active" aria-current="page" :href="route('website.courses')">Courses</Link>
-                </li>
-                <li class="nav-item">
-                    <Link class="nav-link active" aria-current="page" :href="route('website.tutorials')">Tutorials</Link>
-                </li>
-                <li class="nav-item">
-                    <Link class="nav-link active" aria-current="page" :href="route('website.about_us')">About Us</Link>
-                </li>
-                <li class="nav-item">
-                    <Link class="nav-link active" aria-current="page" :href="route('website.contact_us')">Contact Us</Link>
-                </li>
-                <li class="nav-item">
-                    <Link class="nav-link active" aria-current="page" :href="route('website.instructors')">Instructors</Link>
-                </li>
-                <!-- <li class="nav-item dropdown">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <Link
+                            class="nav-link active"
+                            aria-current="page"
+                            :href="route('website.home')"
+                            >Home</Link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <Link
+                            class="nav-link"
+                            aria-current="page"
+                            :href="route('website.courses')"
+                            >Courses</Link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <Link
+                            class="nav-link"
+                            aria-current="page"
+                            :href="route('website.tutorials')"
+                            >Tutorials</Link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <Link
+                            class="nav-link"
+                            aria-current="page"
+                            :href="route('website.about_us')"
+                            >About Us</Link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <Link
+                            class="nav-link"
+                            aria-current="page"
+                            :href="route('website.contact_us')"
+                            >Contact Us</Link
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <Link
+                            class="nav-link"
+                            aria-current="page"
+                            :href="route('website.instructors')"
+                            >Instructors</Link
+                        >
+                    </li>
+                    <!-- <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Dropdown
                 </a>
@@ -36,25 +76,51 @@
                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                 </ul>
                 </li> -->
-                <!-- <li class="nav-item">
+                    <!-- <li class="nav-item">
                 <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                 </li> -->
-            </ul>
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <ul class="navbar-nav mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <Link class="nav-link active" aria-current="page" :href="route('login')">Sign In/Sign Up</Link>
-                </li>
-            </ul>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input
+                        class="form-control me-2"
+                        type="search"
+                        placeholder="Search"
+                        aria-label="Search"
+                    />
+                    <button class="btn btn-outline-success" type="submit">
+                        Search
+                    </button>
+                </form>
+                <ul class="navbar-nav mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <Link
+                            class="nav-link"
+                            aria-current="page"
+                            :href="route('login')"
+                            >Sign In/Sign Up</Link
+                        >
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
 </template>
 
 <script setup>
-import {Link} from '@inertiajs/vue3';
-
+import BrandLogo from "@/Components/Website/common/BrandLogo.vue";
+import { Link } from "@inertiajs/vue3";
 </script>
+
+<style lang="scss" scoped>
+.nav-link {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+
+    &.active {
+        background-color: var(--color-brand);
+        color: var(--color-white);
+        border-radius: var(--rounded-full);
+    }
+}
+</style>

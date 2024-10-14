@@ -22,11 +22,18 @@ import Navbar from "@/Components/Website/Navbar.vue";
     --fs-h2: 2rem;
 
     /* Colors */
+    --color-white-700: hsl(45, 17%, 95%);
     --color-white-800: hsl(0, 0%, 85%);
     --color-white: hsl(0, 0%, 100%);
-    --color-text: hsl(0, 0%, 0%);
+    --color-grey: hsla(0, 0%, 85%, 0.502);
+    --color-black: hsl(0, 0%, 0%);
+    --color-black-500: hsl(0, 0%, 15%);
+    --color-text: var(--color-black);
     --color-bg: var(--color-white);
     --color-brand: hsl(158, 95%, 34%);
+    --color-brand-dark: hsl(158, 95%, 15%);
+    --color-secondary: hsl(203, 100%, 6%);
+    --color-accent: hsl(203, 95%, 15%);
     --color-border: hsl(0, 0%, 60%);
 
     /* Easing */
@@ -104,6 +111,11 @@ button:disabled {
     cursor: not-allowed;
 }
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
 li {
     list-style: none;
 }
@@ -134,29 +146,10 @@ video {
     color: var(--color-brand);
 }
 
-/* components */
-
-.card {
-    display: flex;
-    transition: border 0.3s var(--ease-out-expo);
-    width: fit-content;
-    border-radius: 1rem;
-    border: 1.75px solid var(--color-border);
-    padding: 1rem;
-
-    -webkit-box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
-    -moz-box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
-    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
-}
-
-.card:hover {
-    border-color: var(--color-brand);
-}
-
 .styled-text {
     display: inline-block;
     margin-block: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.25rem 1rem;
     border-top-left-radius: 2rem;
     border-bottom-right-radius: 2rem;
     background: var(--color-brand);
@@ -174,6 +167,24 @@ video {
 .styled-border-lg {
     border-top-left-radius: 6rem;
     border-bottom-right-radius: 6rem;
+}
+/* components */
+
+.card {
+    display: flex;
+    transition: border 0.3s var(--ease-out-expo);
+    width: fit-content;
+    border-radius: 1rem;
+    border: 1.75px solid var(--color-border);
+    padding: 1rem;
+
+    -webkit-box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card:hover {
+    border-color: var(--color-brand);
 }
 
 input[type="text"] {
