@@ -149,7 +149,7 @@ async function fetchPopularCourses(apiUrl: `https://${string}`) {
 
 function setInitialData() {
     allPopularCourses.value = mockData;
-    filteredPopularCourses.value = mockData;
+    filteredPopularCourses.value = mockData.slice(0, 8);
 }
 
 // fetchPopularCourses("https://apiurl.com/get");
@@ -157,15 +157,20 @@ setInitialData();
 
 const handleTabSelection = (category: string) => {
     console.log(category);
-    
+
     if (!category) return;
     if (category.toLowerCase() === "All Courses".toLowerCase())
-        return (filteredPopularCourses.value = allPopularCourses.value);
+        return (filteredPopularCourses.value = allPopularCourses.value?.slice(
+            0,
+            8
+        ));
 
-    const filteredResult = allPopularCourses.value?.filter(
-        (course: Course) =>
-            course.category.toLowerCase() === category.toLowerCase()
-    );
+    const filteredResult = allPopularCourses.value
+        ?.slice(0, 8)
+        ?.filter(
+            (course: Course) =>
+                course.category.toLowerCase() === category.toLowerCase()
+        );
 
     return (filteredPopularCourses.value = filteredResult);
 };
@@ -213,7 +218,7 @@ const handleTabSelection = (category: string) => {
 
         <div class="popular-courses__buttons">
             <Button outlined :to="route('website.courses')"
-                >View all categories</Button
+                >View all popular courses</Button
             >
             <Button :to="route('website.courses')">View all courses</Button>
         </div>
