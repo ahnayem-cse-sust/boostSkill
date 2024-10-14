@@ -9,15 +9,34 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
         <a href="#" class="nav-link active" aria-current="page">
-          <font-awesome-icon @click="sidebarClicked()" class="sidebar-icon" :icon="['fas', 'home']" />
+          <font-awesome-icon class="sidebar-icon" :icon="['fas', 'home']" />
           <span class="sidebar-ttl">Home</span> 
         </a>
       </li>
       <li>
         <a href="#" class="nav-link link-dark">
-          <font-awesome-icon @click="sidebarClicked()" class="sidebar-icon" :icon="['fas', 'eye']" />
+          <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
           <span class="sidebar-ttl">Dashboard</span>
         </a>
+      </li>
+      <li >
+        
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+          <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+          <span class="sidebar-ttl">Course</span>
+        </button>
+        <div class="collapse" id="account-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a :href="route('admin.course.create')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">Create Course</span>
+            </a></li>
+            <li><a :href="route('admin.course.list')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">Courses</span>
+            </a></li>
+          </ul>
+        </div>
       </li>
     </ul>
     <hr>

@@ -1,14 +1,14 @@
 <template>
     <div class="container-fluid">
-        <!-- <div class="row">
-                <Navbar />
-        </div> -->
         <div class="row">
             <main>
                 <Sidebar @clicked-hide-sidebar="sidebarHide" />
                 <div class="main-content" :class="{'low-margin': state.isActiveSidebar}">
                     <Navbar />
                     <div class="container">
+                        <div v-if="$page.props.flash.message" :class="$page.props.flash.class">
+                            {{ $page.props.flash.message }}
+                        </div>
                         <slot />
                     </div>
                 </div>

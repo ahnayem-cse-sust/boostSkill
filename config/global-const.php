@@ -26,6 +26,9 @@ define("MODULE_NAME_USER", "User");
 define("MODULE_NAME_COURSE", "Course");
 define("MODULE_NAME_WEBSITE", "Website");
 
+define("COURSE_STATUS_ACTIVE", "ACTV");
+define("COURSE_STATUS_INACTIVE", "CSIV");
+
 
 
 ?>
