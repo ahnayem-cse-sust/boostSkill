@@ -74,14 +74,17 @@
     --_orientation: column;
     --_divider: 1px solid var(--color-white-800);
 
+
     background: var(--color-brand);
     color: var(--color-white);
 
     display: flex;
     flex-flow: var(--_orientation);
+    justify-content: center;
 
     padding-block: 1rem 2rem;
-    width: clamp(20rem, 100%, 25rem);
+    width: clamp(18.75rem, 100%, 25rem);
+
 
     @include respond-to(lg) {
         --_orientation: row wrap;
@@ -94,14 +97,26 @@
 }
 
 .achievements__item {
+    --_px: 1rem;
+    --_py: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-block: 1rem;
+    
+    padding-block: var(--_py);
 
     @include respond-to(lg) {
-        padding-block: 0;
-        padding-inline: 4rem;
+        --_py: 0rem;
+
+            &:not(:first-child) {
+                padding-inline-start: var(--_px);
+            }
+            &:not(:last-child) {
+                padding-inline-end: var(--_px);
+            }
+    }
+    @include respond-to(xl) {
+        --_px: 3rem;
     }
 }
 
