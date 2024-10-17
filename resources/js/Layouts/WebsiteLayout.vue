@@ -1,15 +1,16 @@
 <template>
-    <div>
-        <Navbar />
+    <Navbar />
+    <main>
         <slot />
-    </div>
+    </main>
 </template>
 
 <script setup>
 import Navbar from "@/Components/Website/Navbar.vue";
 </script>
 
-<style>
+<style lang="scss">
+@import "../styles/responsive";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
@@ -18,8 +19,18 @@ import Navbar from "@/Components/Website/Navbar.vue";
     --ff-heading-2: "Poppins", sans-serif;
     --ff-heading-3: "Poppins", sans-serif;
 
-    --fs-h1: 3rem;
-    --fs-h2: 2rem;
+    --fs-sm: clamp(0.89rem, -0.1vi + 0.91rem, 0.83rem);
+    --fs-base: clamp(1rem, 0vi + 1rem, 1rem);
+    --fs-h6: clamp(1.13rem, 0.13vi + 1.1rem, 1.2rem);
+    --fs-h5: clamp(1.27rem, 0.3vi + 1.2rem, 1.44rem);
+    --fs-h4: clamp(1.42rem, 0.53vi + 1.3rem, 1.73rem);
+    --fs-h3: clamp(1.6rem, 0.82vi + 1.42rem, 2.07rem);
+    --fs-h2: clamp(1.8rem, 1.19vi + 1.53rem, 2.49rem);
+    --fs-h1: clamp(2.03rem, 3.43vi + 1.25rem, 4rem);
+
+    --lh-xs: 1;
+    --lh-sm: 1.3;
+    --lh-base: 1.6;
 
     /* Colors */
     --color-white-700: hsl(45, 17%, 95%);
@@ -66,13 +77,24 @@ html {
 }
 
 body {
+    font-size: var(--fs-base);
+    line-height: var(--lh-sm);
+
     color: var(--color-text);
     background-color: var(--color-bg);
     overflow-x: hidden;
+
+    @include respond-to(md) {
+        line-height: var(--lh-base);
+    }
 }
 
 body::-webkit-scrollbar {
-    width: 0.7rem;
+    width: 0rem;
+
+    @include respond-to(sm) {
+        width: 0.7rem;
+    }
 }
 
 body::-webkit-scrollbar-thumb {
@@ -133,14 +155,45 @@ h6 {
 img,
 picture,
 video {
-    width: 100vw;
+    max-width: 100%; // fallback
+    width: 100vw; // fallback
+    width: clamp(0rem, 100vw, 100%);
     height: 100%;
-    max-width: 100%;
     object-position: center;
     object-fit: cover;
 }
 
 /* Utilities */
+
+.heading-1,
+.heading-2,
+.heading-3,
+.heading-4,
+.heading-5,
+.heading-6 {
+    line-height: var(--lh-xs);
+    @include respond-to(md) {
+        line-height: var(--lh-sm);
+    }
+}
+.heading-1 {
+    font-size: var(--fs-h1);
+}
+.heading-2 {
+    font-size: var(--fs-h2);
+}
+.heading-3 {
+    font-size: var(--fs-h3);
+}
+.heading-4 {
+    font-size: var(--fs-h4);
+}
+.heading-5 {
+    font-size: var(--fs-h5);
+}
+.heading-6 {
+    font-size: var(--fs-h6);
+}
 
 .text-brand {
     color: var(--color-brand);
@@ -170,6 +223,20 @@ video {
 }
 /* components */
 
+main > section {
+    @extend .global-container;
+}
+
+.global-container {
+    width: 100%;
+
+    padding-inline: clamp(
+        1.25rem,
+        10.87vi + -1.2rem,
+        7.5rem
+    ); // sm  = 20px, xl = 80px
+}
+
 .card {
     display: flex;
     transition: border 0.3s var(--ease-out-expo);
@@ -193,7 +260,7 @@ input[type="text"] {
 
     padding: 0.75rem 1.5rem;
 
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     font-weight: 400;
 
     border: 1px solid var(--color-border);

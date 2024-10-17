@@ -4,7 +4,7 @@ import BrandLogo from "../common/BrandLogo.vue";
 
 <template>
     <section class="footer">
-        <div class="footer-wrapper container">
+        <div class="footer-wrapper">
             <div class="footer__info">
                 <BrandLogo variant="full" />
                 <p>
@@ -504,6 +504,7 @@ import BrandLogo from "../common/BrandLogo.vue";
 </template>
 
 <style lang="scss" scoped>
+@import "../../../styles/responsive";
 .footer,
 .footer__copyright {
     width: 100vw;
@@ -518,20 +519,52 @@ import BrandLogo from "../common/BrandLogo.vue";
 
     &-wrapper {
         display: grid;
-        grid-template-columns: 1.2fr 1fr 1fr 1.4fr;
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "info"
+            "..."
+            "..."
+            "media"
+            "copyright";
+
         gap: 3rem;
         min-height: 20rem;
+
+        @include respond-to(sm) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "info info"
+                "... ..."
+                "media media"
+                "copyright copyright";
+        }
+        @include respond-to(lg) {
+            grid-template-columns: 1.75fr 1fr 1fr;
+            grid-template-areas:
+                "info ... ..."
+                "media media media"
+                "copyright copyright copyright";
+        }
+
+        @include respond-to(xl) {
+            grid-template-columns: 1.2fr 1fr 1fr 1.4fr;
+            grid-template-areas: "info ... ... media" "copyright copyright copyright copyright";
+        }
     }
 
     &__info {
+        grid-area: info;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        gap: 1rem;
     }
 
     &__links {
+        grid-area: auto;
         &__title {
-            font-size: var(--fs-h2);
+            font-size: var(--fs-h5);
             font-weight: 500;
 
             &::after {
@@ -539,7 +572,7 @@ import BrandLogo from "../common/BrandLogo.vue";
                 display: flex;
                 width: 20%;
                 height: 3px;
-                margin-block-start: 0.5rem;
+                margin-block-start: 0.25rem;
 
                 border-radius: var(--rounded-full);
                 background: var(--color-brand);
@@ -549,9 +582,17 @@ import BrandLogo from "../common/BrandLogo.vue";
         }
 
         &--media {
+            grid-area: media;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
+            text-align: center;
+
+            @include respond-to(xl) {
+                text-align: unset;
+                align-items: flex-start;
+            }
         }
     }
     &__list {
@@ -594,8 +635,13 @@ import BrandLogo from "../common/BrandLogo.vue";
     &__mobile-app-buttons {
         display: flex;
         flex-flow: row wrap;
+        justify-content: center;
         gap: 1rem;
         row-gap: 0;
+
+        @include respond-to(xl) {
+            justify-content: flex-start;
+        }
 
         > * {
             width: clamp(8rem, 100%, 9rem);
@@ -607,9 +653,9 @@ import BrandLogo from "../common/BrandLogo.vue";
     }
 
     &__copyright {
+        grid-area: copyright;
         background: var(--color-accent);
         color: var(--color-white);
-
         padding: 1rem;
         text-align: center;
     }

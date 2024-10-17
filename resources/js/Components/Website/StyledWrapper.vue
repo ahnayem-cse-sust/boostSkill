@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-    size: number; // in rem (do not type rem in size prop, provide number only);; If not specified it will be 100%; Better to not specify when using with grid layout
+    size?: number; // in rem (do not type rem in size prop, provide number only);; If not specified it will be 100%; Better to not specify when using with grid layout
 }>();
 </script>
 
@@ -22,8 +22,13 @@ defineProps<{
     --_y: var(--_x);
     --_border: 0.5rem;
 
-    width: var(--_size);
-    height: var(--_size);
+    width: clamp(
+        0rem,
+        calc(var(--_size) - calc(var(--_x) * 2)),
+        calc(100% - calc(var(--_x) * 2))
+    );
+    aspect-ratio: 1;
+
     position: relative;
     margin-inline: var(--_x); /* fixes border overlap */
     margin-block: var(--_y); /* fixes border overlap */

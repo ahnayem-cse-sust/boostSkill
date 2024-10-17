@@ -17,7 +17,6 @@ defineProps<{
             <!-- Will be removed in production -->
             <img v-else src="../../../Images/login-img.jpg" alt="" />
         </div>
-        <!-- <div class="course-card__text"> -->
         <div>
             <p class="course-card__heading">
                 {{ title || "Adobe illustrator for beginners" }}
@@ -42,7 +41,6 @@ defineProps<{
             </Button>
             <p class="course-card__price">${{ price || "50.00" }}</p>
         </div>
-        <!-- </div> -->
     </article>
 </template>
 
@@ -72,16 +70,22 @@ defineProps<{
 
     &__heading {
         font-size: var(--_padding);
-        font-weight: 500;
+        font-weight: 600;
         line-height: 1.1;
     }
+
     &__description,
     &__sub-heading {
-        font-size: 0.9rem;
+        font-weight: 500;
+        font-size: var(--fs-sm);
     }
     &__sub-heading {
-        margin-block-start: 0.25rem;
+        line-height: 1.3;
+        margin-block: 0.45rem;
         opacity: 0.6;
+    }
+    &__description {
+        margin-block-end: 0.25rem;
     }
 
     &__bottom {
@@ -90,6 +94,7 @@ defineProps<{
         gap: 1rem;
         justify-content: space-between;
         align-items: center;
+        margin-block-start: 0.5rem;
     }
 
     & &__add-to-cart {
@@ -97,6 +102,7 @@ defineProps<{
         color: var(--color-brand);
         outline: 2px solid var(--color-brand);
         box-shadow: none;
+        margin-left: -0.15rem; // optical alignment fix.
     }
 
     &__price {

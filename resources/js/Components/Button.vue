@@ -48,9 +48,9 @@ button {
     align-items: center;
 
     border-radius: 100rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5em 1em;
 
-    font-size: 1rem;
+    font-size: var(--fs-base);
     font-weight: 600;
 }
 
@@ -64,8 +64,8 @@ button.primary {
     -moz-box-shadow: var(--_x) var(--_y) 0px 0px rgba(0, 0, 0, 0.75);
     box-shadow: var(--_x) var(--_y) 0px 0px rgba(0, 0, 0, 0.75);
 
-    margin-block-end: calc(var(--_y) + 2px);
-    margin-inline-end: calc(var(--_x) + 2px);
+    margin-block: 0 calc(var(--_y) + 2px);
+    margin-inline: 0 calc(var(--_x) + 2px);
 }
 
 button.outlined {

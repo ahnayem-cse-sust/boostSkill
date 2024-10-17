@@ -1,0 +1,28 @@
+$breakpoints: (
+    // Mobiles
+    "xs": "320px",
+    // Mobile(landscape)
+    "sm": "481px",
+    // Small tablets
+    "md": "601px",
+    // Large Tablets
+    "lg": "769px",
+    // Laptops or Small desktop screens
+    "xl": "1025px",
+    // Large Laptop or Desktop screens
+    "xxl": "1281px",
+    // Extra large Laptop or Desktop screens
+    "xxxl": "1441px"
+);
+
+@mixin respond-to($breakpoint) {
+    $size: map-get($breakpoints, $breakpoint);
+
+    @if $size != null {
+        @media screen and (min-width: $size) {
+            @content;
+        }
+    } @else {
+        @warn "No value found for #{$breakpoint} in the map of breakpoints.";
+    }
+}
