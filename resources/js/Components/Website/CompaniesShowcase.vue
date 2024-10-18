@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from "vue";
-const companies = ref(["1", "2", "3", "4", "5"]);
+const companies = ref(["N/A", "N/A", "N/A", "N/A", "N/A"]);
 
 const getImageUrl = () => {
     for (let i = 0; i < companies.value.length; i++) {
@@ -24,7 +24,7 @@ onMounted(() => {
         </p>
         <div class="companies-showcase__logos">
             <div class="companies-showcase__image" v-for="company in companies">
-                <img :key="company" :src="company" alt="" />
+                <img v-if="company!='N/A'" :key="company" :src="company" alt="" />
             </div>
         </div>
     </section>
