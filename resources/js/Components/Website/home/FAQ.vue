@@ -7,7 +7,7 @@ import Tag from "@/Components/Website/Tag.vue";
 <template>
     <section class="home-faq">
         <div class="home-faq__image">
-            <StyledWrapper :size="30">
+            <StyledWrapper>
                 <img src="https://i.pravatar.cc/699" alt="" />
             </StyledWrapper>
         </div>
@@ -38,17 +38,29 @@ import Tag from "@/Components/Website/Tag.vue";
 </template>
 
 <style lang="scss" scoped>
-.home-faq {
-    display: flex;
-    margin-block: 7rem;
+@import "../../../styles/responsive";
 
-    > * {
-        flex: 0 0 50%;
+.home-faq {
+    display: grid;
+    gap: 3rem;
+    grid-template-columns: 1fr;
+    margin-block: 4rem;
+    position: relative;
+    justify-items: center;
+
+    @include respond-to(xl) {
+        grid-template-columns: 1fr 1.5fr;
     }
 
     &__image {
-        display: flex;
-        align-items: center;
+        height: fit-content;
+        width: clamp(0rem, 100%, 25rem);
+
+        @include respond-to(xl) {
+            top: 4rem;
+
+            position: sticky;
+        }
     }
 
     &__heading {

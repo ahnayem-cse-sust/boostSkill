@@ -2,6 +2,7 @@
 import Button from "@/Components/Button.vue";
 import Tag from "@/Components/Website/Tag.vue";
 import TeacherCard from "@/Components/Website/TeacherCard.vue";
+import GridColumn from "./common/GridColumn.vue";
 </script>
 
 <template>
@@ -16,32 +17,42 @@ import TeacherCard from "@/Components/Website/TeacherCard.vue";
             </p>
         </div>
         <div class="top-instructors__cards">
-            <TeacherCard name="Ali abdali" image="https://i.pravatar.cc/500" />
-            <TeacherCard
-                name="John Doe"
-                title="Software Engineer"
-                image="https://i.pravatar.cc/501"
-            />
-            <TeacherCard
-                name="rehana nur"
-                title="teacher"
-                image="https://i.pravatar.cc/502"
-            />
-            <TeacherCard
-                name="nazmus sakib"
-                title="web developer"
-                image="https://i.pravatar.cc/503"
-            />
-            <TeacherCard
-                name="Nayem"
-                title="Software Engineer"
-                image="https://i.pravatar.cc/504"
-            />
-            <TeacherCard
-                name="mijan"
-                title="Web designer"
-                image="https://i.pravatar.cc/505"
-            />
+            <GridColumn
+                :columns="{
+                    sm: 2,
+                    lg: 3,
+                }"
+            >
+                <TeacherCard
+                    name="Ali abdali"
+                    image="https://i.pravatar.cc/500"
+                />
+                <TeacherCard
+                    name="John Doe"
+                    title="Software Engineer"
+                    image="https://i.pravatar.cc/501"
+                />
+                <TeacherCard
+                    name="rehana nur"
+                    title="teacher"
+                    image="https://i.pravatar.cc/502"
+                />
+                <TeacherCard
+                    name="nazmus sakib"
+                    title="web developer"
+                    image="https://i.pravatar.cc/503"
+                />
+                <TeacherCard
+                    name="Nayem"
+                    title="Software Engineer"
+                    image="https://i.pravatar.cc/504"
+                />
+                <TeacherCard
+                    name="mijan"
+                    title="Web designer"
+                    image="https://i.pravatar.cc/505"
+                />
+            </GridColumn>
         </div>
         <Button style="margin-block-start: 2rem"
             >See All Instructors
@@ -61,9 +72,13 @@ import TeacherCard from "@/Components/Website/TeacherCard.vue";
 }
 .top-instructors {
     margin-inline: auto;
-    max-width: 80%;
     padding-block: 10rem;
     gap: 3rem;
+
+    &__heading,
+    &__description {
+        text-align: center;
+    }
 
     &__heading {
         font-size: var(--fs-h2);
@@ -72,17 +87,12 @@ import TeacherCard from "@/Components/Website/TeacherCard.vue";
     }
 
     &__description {
-        text-align: center;
         max-width: 55ch;
         font-weight: 500;
     }
 
     &__cards {
-        display: grid;
-        place-content: center;
-        place-self: center;
-        grid-template-columns: repeat(3, minmax(15rem, 1fr));
-        gap: 3rem;
+        width: clamp(0rem, 50rem, 100%);
     }
 }
 </style>

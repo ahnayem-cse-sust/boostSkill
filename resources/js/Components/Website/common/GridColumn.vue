@@ -1,20 +1,3 @@
-<!-- 
-Mobile:
-mobile-md: Medium mobile screens (up to 22.5rem / 360px)
-mobile-lg: Large mobile screens (up to 26.875rem / 430px)
-
-Tablet:
-tablet-sm: Small tablet screens (up to 48rem / 768px)
-tablet-md: Medium tablet screens (up to 61rem / 991px)
-tablet-lg: Large tablet screens (up to 73.75rem / 1180px)
-
-Desktop:
-desktop-sm: Small desktop screens (up to 80rem / 1280px)
-desktop-md: Medium desktop screens (up to 90rem / 1440px)
-desktop-lg: Large desktop screens (up to 96rem / 1536px)
-desktop-xl: Extra-large desktop screens (above 120rem / 1920px)
--->
-
 <template>
     <div class="grid-col" :style="gridStyles">
         <slot></slot>
@@ -22,35 +5,26 @@ desktop-xl: Extra-large desktop screens (above 120rem / 1920px)
 </template>
 
 <style lang="scss" scoped>
-.grid-col {
-    $breakpoints: (
-        "mobile-sm": "22.5rem",
-        "mobile-md": "26.875rem",
-        "mobile-lg": "36rem",
-        "tablet-sm": "48rem",
-        "tablet-md": "61rem",
-        "tablet-lg": "73.75rem",
-        "desktop-sm": "80rem",
-        "desktop-md": "90rem",
-        "desktop-lg": "96rem",
-        "desktop-xl": "120rem",
-    );
+@import "../../../styles/responsive";
 
-    // Loop through breakpoints to create responsive media queries
-    @each $key, $value in $breakpoints {
-        @media screen and (min-width: #{$value}) {
-            --_columns: var(
-                --_columns-#{$key}
-            ); // No need for nested fallbacks anymore
+.grid-col {
+    // Loop through breakpoints imported from _responsive.scss to create responsive media queries
+    @each $key, $_ in $breakpoints {
+        @include respond-to($key) {
+            --_columns: var(--_columns-#{$key});
         }
     }
 
-    // Default column configuration for mobile-sm
-    --_columns: var(--_columns-mobile-sm);
+    // Default column configuration
+    --_columns: var(--_columns-xs);
     --_column-gap: 1rem;
     --_row-gap: 1rem;
 
+    width: 100%;
+
     display: grid;
+    place-content: start center;
+
     grid-template-columns: repeat(
         auto-fit,
         minmax(
@@ -58,42 +32,43 @@ desktop-xl: Extra-large desktop screens (above 120rem / 1920px)
             calc(100% / var(--_columns) - var(--_column-gap))
         )
     );
+
+    > * {
+        margin-block-end: var(--_row-gap);
+    }
     column-gap: var(--_column-gap);
-    row-gap: var(--_row-gap);
 }
 </style>
 
 <script setup lang="ts">
 import { computed } from "vue";
 
+type CssSizeUnits =
+    | `${number}${"px" | "rem" | "em" | "ch" | "vw" | "vh" | "%"}`
+    | string;
+
 // Define the shape of the Columns object
 type DeviceColumns =
     | number
-    | { sm?: number; md?: number; lg?: number; xl?: number };
-type Columns = {
-    mobile?: DeviceColumns;
-    tablet?: DeviceColumns;
-    desktop?: DeviceColumns;
-};
+    | {
+          sm?: number;
+          md?: number;
+          lg?: number;
+          xl?: number;
+          xxl?: number;
+          xxxl?: number;
+      };
 
 // Define props, allowing either a number or the Columns object
-const { columns } = defineProps<{
-    columns: Columns | number;
+const { columns, gap } = defineProps<{
+    columns: DeviceColumns;
+    gap?:
+        | `${number}${"px" | "rem" | "em"}`
+        | `${number}${"px" | "rem" | "em"} ${number}${"px" | "rem" | "em"}`;
 }>();
 
 // Array of breakpoints in mobile-first order
-const breakpoints = [
-    "mobile-sm",
-    "mobile-md",
-    "mobile-lg",
-    "tablet-sm",
-    "tablet-md",
-    "tablet-lg",
-    "desktop-sm",
-    "desktop-md",
-    "desktop-lg",
-    "desktop-xl",
-];
+const breakpoints = ["xs", "sm", "md", "lg", "xl", "xxl", "xxxl"];
 
 // Helper function to get the column count for a given device and size
 const getDeviceSizeColumns = (
@@ -115,7 +90,7 @@ const getBreakpointColumns = (breakpoint: string): number => {
         const fallbackBreakpoint = breakpoints[i];
         const [fallbackDevice, fallbackSize] = fallbackBreakpoint.split("-");
         const fallbackDeviceColumns =
-            columns?.[fallbackDevice as keyof Columns];
+            columns?.[fallbackDevice as keyof DeviceColumns];
         const fallbackColumnValue = getDeviceSizeColumns(
             fallbackDeviceColumns,
             fallbackSize
@@ -139,7 +114,18 @@ const gridStyles = computed(() => {
             getBreakpointColumns(breakpoint).toString();
     });
 
-    // IMPLEMENT ROW AND COLUMN GAP PROPERTIES;
+    // Set the gap values if defined
+    if (gap) {
+        const gapArray = gap.split(" ");
+
+        if (gapArray.length === 1) {
+            styleObject["--_row-gap"] = gapArray[0];
+            styleObject["--_column-gap"] = gapArray[0];
+        } else if (gapArray.length === 2) {
+            styleObject["--_row-gap"] = gapArray[0];
+            styleObject["--_column-gap"] = gapArray[1];
+        }
+    }
 
     return styleObject;
 });

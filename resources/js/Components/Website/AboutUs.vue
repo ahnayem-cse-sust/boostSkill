@@ -6,17 +6,18 @@ import StyledWrapper from "./StyledWrapper.vue";
 
 <template>
     <section class="about-us">
-        <StyledWrapper :size="28" class="about-us__image">
-            <img src="https://i.pravatar.cc/699" alt="name" />
-
-            <span class="about-us__image-overlay">
-                <Button :square="true">
-                    <font-awesome-icon :icon="['fas', 'play']" />
-                </Button>
-            </span>
-        </StyledWrapper>
+        <div class="about-us__image">
+            <StyledWrapper>
+                <img src="https://i.pravatar.cc/699" alt="name" />
+                <span class="about-us__image-overlay">
+                    <Button :square="true">
+                        <font-awesome-icon :icon="['fas', 'play']" />
+                    </Button>
+                </span>
+            </StyledWrapper>
+        </div>
         <div class="about-us__content">
-            <Tag>Get more with us</Tag>
+            <Tag class="about-us__tag">Get more with us</Tag>
             <p class="about-us__heading">
                 Thousand of Top Online Courses
                 <span class="styled-text">Now in One Place</span>
@@ -52,7 +53,7 @@ import StyledWrapper from "./StyledWrapper.vue";
                     </p>
                 </li>
             </ul>
-            <Button
+            <Button class="about-us__learn-more"
                 >Learn More
                 <font-awesome-icon
                     :icon="['fas', 'arrow-right']"
@@ -63,16 +64,35 @@ import StyledWrapper from "./StyledWrapper.vue";
 </template>
 
 <style lang="scss" scoped>
+@import "../../styles/responsive";
+
 .about-us {
-    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    place-items: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
     gap: 3rem;
 
     padding-block: 7rem;
 
+    @include respond-to(xl) {
+        grid-template-columns: 1fr 1.5fr;
+    }
+
+    &__tag {
+        display: flex;
+        width: fit-content;
+    }
+
     &__image {
+        width: clamp(0rem, 100%, 25rem);
+        height: fit-content;
+
+        @include respond-to(xl) {
+            top: 4rem;
+
+            position: sticky;
+        }
+
         &-overlay {
             transition: background 0.3s var(--ease-out-expo);
             position: absolute;
@@ -94,7 +114,12 @@ import StyledWrapper from "./StyledWrapper.vue";
         font-weight: 600;
         letter-spacing: 0.05rem;
         text-transform: capitalize;
-        margin-block-start: 2rem;
+        margin-block-start: 1rem;
+        max-width: 24ch;
+
+        @include respond-to(lg) {
+            margin-block-start: 2rem;
+        }
 
         span {
             margin-block-start: -0.125rem;
@@ -118,9 +143,17 @@ import StyledWrapper from "./StyledWrapper.vue";
             align-items: center;
 
             &-title {
-                font-size: 1.5rem;
+                font-size: var(--fs-h5);
                 font-weight: 600;
             }
+        }
+    }
+
+    &__learn-more {
+        margin-inline: auto !important;
+
+        @include respond-to(lg) {
+            margin-inline-start: unset !important;
         }
     }
 }

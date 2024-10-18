@@ -16,7 +16,7 @@ defineProps<{
 
 <style scoped>
 details {
-    --_y: 1rem;
+    --_y: 0.5em;
 }
 
 details,
@@ -45,9 +45,9 @@ details > summary {
     user-select: none;
 
     padding-block: var(--_y);
-    padding-inline-end: 3.6rem;
+    padding-inline-end: 3em;
 
-    font-size: 1.6rem;
+    font-size: var(--fs-h5);
     font-weight: 600;
 
     position: relative;

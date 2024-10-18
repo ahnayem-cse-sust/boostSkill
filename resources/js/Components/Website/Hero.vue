@@ -4,40 +4,39 @@ import Button from "../Button.vue";
 
 <template>
     <section class="hero">
-        <div class="container">
-            <h1 class="hero__title">
-                Better <span class="text-brand">education</span> for A better
-                world
-            </h1>
-            <p class="hero__description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book.
-            </p>
-            <div class="hero__buttons">
-                <Button :to="route('website.courses')"
-                    >Check our courses
-                    <font-awesome-icon
-                        :icon="['fas', 'arrow-right']"
-                        style="margin-inline-start: 0.5rem"
-                    />
-                </Button>
-                <span class="hero__video-btn">
-                    <Button style="width: 3.5rem" :square="true">
-                        <font-awesome-icon :icon="['fas', 'play']"
-                    /></Button>
-                    <p>Watch our class demo</p>
-                </span>
-            </div>
+        <h1 class="hero__title">
+            Better <span class="text-brand">education</span> for A better world
+        </h1>
+        <p class="hero__description">
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen book.
+        </p>
+        <div class="hero__buttons">
+            <Button :to="route('website.courses')"
+                >Check our courses
+                <font-awesome-icon
+                    :icon="['fas', 'arrow-right']"
+                    style="margin-inline-start: 0.5rem"
+                />
+            </Button>
+            <span class="hero__video-btn">
+                <Button style="width: 3.5rem" :square="true">
+                    <font-awesome-icon :icon="['fas', 'play']"
+                /></Button>
+                <p>Watch our class demo</p>
+            </span>
         </div>
     </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../../styles/responsive";
 .hero {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 
     width: 100vw;
     margin-inline: calc(-50vw + 50%);
@@ -60,7 +59,7 @@ import Button from "../Button.vue";
     color: var(--color-white);
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 4rem;
+    font-size: var(--fs-h1);
     letter-spacing: 0.25rem;
 
     max-width: 21ch;
@@ -75,6 +74,7 @@ import Button from "../Button.vue";
 }
 .hero__buttons {
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
     gap: 1rem;
     margin-block-start: 2rem;

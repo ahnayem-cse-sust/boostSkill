@@ -36,7 +36,7 @@ defineProps({
     --_size: 100%;
     display: flex;
     position: relative;
-    width: fit-content;
+    width: var(--_size);
     overflow: hidden;
     border-radius: var(--rounded-md);
 }
@@ -73,7 +73,7 @@ defineProps({
 }
 .teacher-card__name {
     text-transform: capitalize;
-    font-size: 1.5rem;
+    font-size: var(--fs-h6);
     font-weight: 600;
     letter-spacing: 0.035rem;
     color: var(--color-white);

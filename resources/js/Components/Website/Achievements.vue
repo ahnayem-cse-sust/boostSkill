@@ -24,7 +24,9 @@
     </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../../styles/responsive";
+
 .achievements {
     display: flex;
     flex-direction: column;
@@ -69,32 +71,85 @@
 }
 
 .achievements__card {
+    --_orientation: column;
+    --_divider: 1px solid var(--color-white-800);
+
+
     background: var(--color-brand);
     color: var(--color-white);
 
-    border-radius: var(--rounded-full);
-
     display: flex;
-    flex-direction: row;
-    padding-block: 2rem;
+    flex-flow: var(--_orientation);
+    justify-content: center;
+
+    padding-block: 1rem 2rem;
+    width: clamp(18.75rem, 100%, 25rem);
+
+
+    @include respond-to(lg) {
+        --_orientation: row wrap;
+
+        border-radius: var(--rounded-full);
+
+        width: clamp(20rem, 100%, 100%);
+        padding-block: 2rem;
+    }
 }
 
 .achievements__item {
+    --_px: 1rem;
+    --_py: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-inline: 4rem;
+    
+    padding-block: var(--_py);
+
+    @include respond-to(lg) {
+        --_py: 0rem;
+
+            &:not(:first-child) {
+                padding-inline-start: var(--_px);
+            }
+            &:not(:last-child) {
+                padding-inline-end: var(--_px);
+            }
+    }
+    @include respond-to(xl) {
+        --_px: 3rem;
+    }
 }
 
 .achievements__item + .achievements__item {
-    border-left: 1px solid var(--color-white-800);
+    border-top: var(--_divider);
+
+    @include respond-to(lg) {
+        border-top: none;
+        border-left: var(--_divider);
+    }
 }
 .achievements__number {
-    font-size: var(--fs-h1);
+    font-size: var(--fs-h6);
     font-weight: 500;
-    margin-bottom: -0.75rem;
+
+    @include respond-to(md) {
+        font-size: var(--fs-h4);
+    }
+    @include respond-to(lg) {
+        margin-bottom: -0.75rem;
+        font-size: var(--fs-h2);
+    }
 }
 .achievements__category-name {
     text-transform: capitalize;
+    text-align: center;
+
+    font-size: var(--fs-sm);
+    line-height: var(--lh-xs);
+
+    @include respond-to(lg) {
+        font-size: var(--fs-base);
+        line-height: var(--lh-sm);
+    }
 }
 </style>

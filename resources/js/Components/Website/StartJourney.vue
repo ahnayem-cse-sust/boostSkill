@@ -1,6 +1,6 @@
 <script setup>
 import Tag from "@/Components/Website/Tag.vue";
-import BecomeAStudentCard from "./BecomeAStudentCard.vue";
+import StartJourneyCard from "./StartJourneyCard.vue";
 
 const getImageUrl = (relativePath) => {
     return new URL(relativePath, import.meta.url).href;
@@ -8,8 +8,8 @@ const getImageUrl = (relativePath) => {
 </script>
 
 <template>
-    <section class="become-a-student">
-        <div class="become-a-student__head" style="margin-bottom: 6rem">
+    <section class="start-journey">
+        <div class="start-journey__head" style="margin-bottom: 6rem">
             <Tag
                 style="
                     background: var(--color-brand);
@@ -18,14 +18,14 @@ const getImageUrl = (relativePath) => {
                 "
                 >How to Start Journey with Us</Tag
             >
-            <p class="become-a-student__heading">Start your Learning Today!</p>
-            <p class="become-a-student__subheading">
+            <p class="start-journey__heading">Start your Learning Today!</p>
+            <p class="start-journey__subheading">
                 Discover a World of Knowledge and Skills at Your Fingertips –
                 Unlock Your Potential and Achieve Your Dreams with Our
                 Comprehensive Learning Resources!
             </p>
         </div>
-        <BecomeAStudentCard
+        <StartJourneyCard
             title="Become a Teacher"
             description="Join our team to inspire students, share your knowledge, and
                 shape the future."
@@ -33,7 +33,7 @@ const getImageUrl = (relativePath) => {
             style="margin-block: 1rem"
             size="1.25x"
         />
-        <BecomeAStudentCard
+        <StartJourneyCard
             title="Become a Student"
             description="Join our team to inspire students, share your knowledge, and
                 shape the future.Join our team to inspire students, share your knowledge, and
@@ -47,14 +47,14 @@ const getImageUrl = (relativePath) => {
 </template>
 
 <style lang="scss" scoped>
-.become-a-student,
-.become-a-student__head {
+.start-journey,
+.start-journey__head {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.become-a-student {
+.start-journey {
     width: 100vw;
     margin-inline: calc(-50vw + 50%);
     padding-block: 4rem 6rem;

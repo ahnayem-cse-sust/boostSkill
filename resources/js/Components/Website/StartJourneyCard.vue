@@ -10,15 +10,20 @@ const { size } = defineProps<{
     description: string;
 }>();
 
-const cardSize = computed(() => {
-    return size
-        ? `--_size: ${size?.substring(0, size.length - 1)};`
-        : "--_size: 1;";
+const cardStyle = computed(() => {
+
+    const styleObject: Record<string, string> = {};
+
+    if (size) {
+        styleObject["--_size"] = size?.substring(0, size.length - 1);
+    }
+
+    return styleObject;
 });
 </script>
 
 <template>
-    <article class="proposition-card" :data-rtl="rtl" :style="cardSize">
+    <article class="proposition-card" :data-rtl="rtl" :style="cardStyle">
         <div class="proposition-card__content">
             <p class="proposition-card__heading">{{ title }}</p>
             <p class="proposition-card__description">
@@ -95,6 +100,7 @@ const cardSize = computed(() => {
         max-width: 40ch;
     }
     &__image {
+        // display: none;
         flex: 0 0 calc(20rem * var(--_size));
         width: calc(20rem * var(--_size));
         height: calc(20rem * var(--_size));

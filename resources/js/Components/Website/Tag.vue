@@ -6,7 +6,7 @@
 
 <style scoped>
 .tag {
-    display: inline-block;
+    display: inline-flex;
     padding: 0.25rem 2rem;
 
     font-weight: 600;
