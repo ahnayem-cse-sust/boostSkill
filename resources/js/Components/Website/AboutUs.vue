@@ -6,15 +6,16 @@ import StyledWrapper from "./StyledWrapper.vue";
 
 <template>
     <section class="about-us">
-        <StyledWrapper :size="28" class="about-us__image">
-            <img src="https://i.pravatar.cc/699" alt="name" />
-
-            <span class="about-us__image-overlay">
-                <Button :square="true">
-                    <font-awesome-icon :icon="['fas', 'play']" />
-                </Button>
-            </span>
-        </StyledWrapper>
+        <div class="about-us__image">
+            <StyledWrapper>
+                <img src="https://i.pravatar.cc/699" alt="name" />
+                <span class="about-us__image-overlay">
+                    <Button :square="true">
+                        <font-awesome-icon :icon="['fas', 'play']" />
+                    </Button>
+                </span>
+            </StyledWrapper>
+        </div>
         <div class="about-us__content">
             <Tag class="about-us__tag">Get more with us</Tag>
             <p class="about-us__heading">
@@ -66,7 +67,6 @@ import StyledWrapper from "./StyledWrapper.vue";
 @import "../../styles/responsive";
 
 .about-us {
-    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     justify-items: center;
@@ -84,6 +84,15 @@ import StyledWrapper from "./StyledWrapper.vue";
     }
 
     &__image {
+        width: clamp(0rem, 100%, 25rem);
+        height: fit-content;
+
+        @include respond-to(xl) {
+            top: 4rem;
+
+            position: sticky;
+        }
+
         &-overlay {
             transition: background 0.3s var(--ease-out-expo);
             position: absolute;
