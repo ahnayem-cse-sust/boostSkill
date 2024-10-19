@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\OnlineClassController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -44,8 +45,15 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
 
     Route::get('/course/create', [CourseController::class, 'create'])->name('course.create');
     Route::post('/course/store', [CourseController::class, 'store'])->name('course.store');
-    Route::get('/course/list', [CourseController::class, 'allCourses'])->name('course.list');
+    Route::get('/course/list', [CourseController::class, 'getList'])->name('course.list');
     Route::get('/course/details/{id}', [CourseController::class, 'details'])->name('course.details');
     Route::get('/course/edit/{id}', [CourseController::class, 'edit'])->name('course.edit');
     Route::post('/course/update/{id}', [CourseController::class, 'update'])->name('course.update');
+    
+    Route::get('/class/create', [OnlineClassController::class, 'create'])->name('class.create');
+    Route::post('/class/store', [OnlineClassController::class, 'store'])->name('class.store');
+    Route::get('/class/list', [OnlineClassController::class, 'getList'])->name('class.list');
+    Route::get('/class/details/{id}', [OnlineClassController::class, 'details'])->name('class.details');
+    Route::get('/class/edit/{id}', [OnlineClassController::class, 'edit'])->name('class.edit');
+    Route::post('/class/update/{id}', [OnlineClassController::class, 'update'])->name('class.update');
 });

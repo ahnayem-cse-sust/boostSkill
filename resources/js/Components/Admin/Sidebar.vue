@@ -21,11 +21,11 @@
       </li>
       <li >
         
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#course-collapse" aria-expanded="false">
           <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
           <span class="sidebar-ttl">Course</span>
         </button>
-        <div class="collapse" id="account-collapse">
+        <div class="collapse" id="course-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a :href="route('admin.course.create')" class="link-dark rounded">
               <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
@@ -34,6 +34,23 @@
             <li><a :href="route('admin.course.list')" class="link-dark rounded">
               <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
               <span class="sidebar-ttl">Courses</span>
+            </a></li>
+          </ul>
+        </div>
+
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#class-collapse" aria-expanded="false">
+          <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+          <span class="sidebar-ttl">Online Classes</span>
+        </button>
+        <div class="collapse" id="class-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a :href="route('admin.class.create')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">Create Class</span>
+            </a></li>
+            <li><a :href="route('admin.class.list')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">All Classes</span>
             </a></li>
           </ul>
         </div>

@@ -2,15 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CourseRequest;
-use App\Services\CourseService;
+use App\Http\Requests\OnlineClassRequest;
+use App\Services\OnlineClassService;
 use Inertia\Inertia;
-use Illuminate\Support\Facades\Auth;
 
-class CourseController extends Controller
+class OnlineClassController extends Controller
 {
     private $service;
-    public function __construct(CourseService $service)
+    public function __construct(OnlineClassService $service)
     {
         parent::__construct();
         $this->service = $service;
@@ -23,20 +22,20 @@ class CourseController extends Controller
 
     public function create(){
         if($this->hasPermission(PERMISSION_TYPE_CREATE)){
-            return Inertia::render('Admin/Course/Create');
+            return Inertia::render('Admin/Class/Create');
         } else{
             return $this->unauthorizedPageResponse();
         }
     }
 
-    public function store(CourseRequest $request)
+    public function store(OnlineClassRequest $request)
     {
         
         $validated = $request->validated();
 
         if($this->hasPermission(PERMISSION_TYPE_CREATE)){
             $response = $this->service->storeItem($request->all());
-            return redirect()->route('admin.course.create')->with([
+            return redirect()->route('admin.class.create')->with([
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
             ]);
@@ -49,8 +48,8 @@ class CourseController extends Controller
     {
         if($this->hasPermission(PERMISSION_TYPE_READ)){
             $response = $this->service->getAllItem();
-            return Inertia::render('Admin/Course/List',[
-               'courses' => $response['data']
+            return Inertia::render('Admin/Class/List',[
+               'data' => $response['data']
             ]);
         } else{
             return $this->unauthorizedPageResponse();
@@ -63,8 +62,8 @@ class CourseController extends Controller
         if($this->hasPermission(PERMISSION_TYPE_READ)){
             $response = $this->service->getItem($id);
             // dd($response);
-            return Inertia::render('Admin/Course/Details',[
-               'course' => $response['data']
+            return Inertia::render('Admin/Class/Details',[
+               'data' => $response['data']
             ]);
         } else{
             return $this->unauthorizedPageResponse();
@@ -77,20 +76,20 @@ class CourseController extends Controller
         if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
             $response = $this->service->getItem($id);
             // dd($response);
-            return Inertia::render('Admin/Course/Edit',[
-               'course' => $response['data']
+            return Inertia::render('Admin/Class/Edit',[
+               'data' => $response['data']
             ]);
         } else{
             return $this->unauthorizedPageResponse();
         }
     }
 
-    public function update($id, CourseRequest $request)
+    public function update($id, OnlineClassRequest $request)
     {
         // dd($id);
         if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
             $response = $this->service->updateItem($id,$request->all());
-            return redirect()->route('admin.course.list')->with([
+            return redirect()->route('admin.class.list')->with([
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
             ]);
