@@ -35,7 +35,7 @@ class CourseController extends Controller
         $validated = $request->validated();
 
         if($this->hasPermission(PERMISSION_TYPE_CREATE)){
-            $response = $this->service->store($request->all());
+            $response = $this->service->storeItem($request->all());
             return redirect()->route('admin.course.create')->with([
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
@@ -45,10 +45,10 @@ class CourseController extends Controller
         }
     }
 
-    public function allCourses()
+    public function getList()
     {
         if($this->hasPermission(PERMISSION_TYPE_READ)){
-            $response = $this->service->getAllCourses();
+            $response = $this->service->getAllItem();
             return Inertia::render('Admin/Course/List',[
                'courses' => $response['data']
             ]);
@@ -61,7 +61,7 @@ class CourseController extends Controller
     {
         // dd($id);
         if($this->hasPermission(PERMISSION_TYPE_READ)){
-            $response = $this->service->getCourse($id);
+            $response = $this->service->getItem($id);
             // dd($response);
             return Inertia::render('Admin/Course/Details',[
                'course' => $response['data']
@@ -75,7 +75,7 @@ class CourseController extends Controller
     {
         // dd($id);
         if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
-            $response = $this->service->getCourse($id);
+            $response = $this->service->getItem($id);
             // dd($response);
             return Inertia::render('Admin/Course/Edit',[
                'course' => $response['data']
@@ -89,7 +89,7 @@ class CourseController extends Controller
     {
         // dd($id);
         if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
-            $response = $this->service->updateCourse($id,$request->all());
+            $response = $this->service->updateItem($id,$request->all());
             return redirect()->route('admin.course.list')->with([
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'

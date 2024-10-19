@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('online_classes', function (Blueprint $table) {
             $table->id();
-            $table->integer('course_id');
-            $table->string('title');
-            $table->string('date_time');
-            $table->integer('duration');
-            $table->string('status');
-            $table->string('platform');
-            $table->string('url');
-            $table->string('description');
+            $table->string('title')->nullable();
+            $table->integer('course_id')->nullable();
+            $table->string('date_time')->nullable();
+            $table->integer('duration')->nullable();
+            $table->string('status')->nullable();
+            $table->string('platform')->nullable();
+            $table->string('url')->nullable();
+            $table->string('description')->nullable();
             $table->timestamps();
         });
     }

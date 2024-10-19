@@ -3,12 +3,10 @@
 
 namespace App\Services;
 
-use App\Models\Course;
-use App\Models\CourseCategory;
-use App\Models\EnrolledCourse;
+use App\Models\OnlineClass;
 
 
-class CourseService extends BaseService
+class OnlineClassService extends BaseService
 {
 
     public function __construct()
@@ -17,30 +15,30 @@ class CourseService extends BaseService
     }
 
     public function storeItem($data){
-        if(Course::create($data)){
+        if(OnlineClass::create($data)){
             return $this->success('Course Created Successfully');
         }
         return $this->failure('Someting Went Wrong!!');
     }
 
     public function getAllItem(){
-        $courses = Course::where(function($q){
+        $data = OnlineClass::where(function($q){
           $q->where('status',COURSE_STATUS_ACTIVE)
             ->orWhere('status',null);
         })->get();
 
-        return $this->success('Courses successfully retrived',$courses);
+        return $this->success('Courses successfully retrived',$data);
     }
 
     public function getItem($id){
-        $course = Course::where('id',$id)->get();
+        $data = OnlineClass::where('id',$id)->get();
 
-        return $this->success('Course successfully retrived',$course);
+        return $this->success('Course successfully retrived',$data);
     }
 
-    public function updateItem($id, $data){
-        $course = Course::where('id',$id)->first();
-        if($course->update($data)){
+    public function updateItem($id, $updated_data){
+        $data = OnlineClass::where('id',$id)->first();
+        if($data->update($updated_data)){
             return $this->success($data['title'].' Updated Successfully');
         }
         return $this->failure('Someting Went Wrong!!');
