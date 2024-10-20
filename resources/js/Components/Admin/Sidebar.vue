@@ -20,7 +20,6 @@
         </a>
       </li>
       <li >
-        
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#course-collapse" aria-expanded="false">
           <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
           <span class="sidebar-ttl">Course</span>
@@ -37,7 +36,8 @@
             </a></li>
           </ul>
         </div>
-
+        </li>
+      <li>
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#class-collapse" aria-expanded="false">
           <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
           <span class="sidebar-ttl">Online Classes</span>
@@ -55,43 +55,28 @@
           </ul>
         </div>
       </li>
+      <li>
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#exam-collapse" aria-expanded="false">
+          <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+          <span class="sidebar-ttl">Exams</span>
+        </button>
+        <div class="collapse" id="exam-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a :href="route('admin.exam.create')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">Create Exam</span>
+            </a></li>
+            <li><a :href="route('admin.exam.list')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">All Exams</span>
+            </a></li>
+          </ul>
+        </div>
+      </li>
+
     </ul>
     <hr>
   </div>
-
-  <!-- <div class="bs-sidebar d-flex flex-column flex-shrink-0 bg-light" :style="{width: state.smallSidebarWidth+'rem'}">
-    <a href="#" class="d-block p-3 link-dark text-decoration-none" title="Icon-only" data-bs-toggle="tooltip" data-bs-placement="right">
-        <font-awesome-icon @click="state.sidebarWidth=280;$emit('clickedHideSidebar')" class="hide-icon-bar" :icon="['fas', 'bars']" />
-    </a>
-    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
-      <li class="nav-item">
-        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
-          <svg class="bi" width="24" height="24" role="img" aria-label="Home"><use xlink:href="#home"/></svg>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
-          <svg class="bi" width="24" height="24" role="img" aria-label="Dashboard"><use xlink:href="#speedometer2"/></svg>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Orders" data-bs-toggle="tooltip" data-bs-placement="right">
-          <svg class="bi" width="24" height="24" role="img" aria-label="Orders"><use xlink:href="#table"/></svg>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Products" data-bs-toggle="tooltip" data-bs-placement="right">
-          <svg class="bi" width="24" height="24" role="img" aria-label="Products"><use xlink:href="#grid"/></svg>
-        </a>
-      </li>
-      <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Customers" data-bs-toggle="tooltip" data-bs-placement="right">
-          <svg class="bi" width="24" height="24" role="img" aria-label="Customers"><use xlink:href="#people-circle"/></svg>
-        </a>
-      </li>
-    </ul>
-  </div> -->
-
 </template>
 
 <script setup>

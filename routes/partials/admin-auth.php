@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\PasswordController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ExamController;
 use App\Http\Controllers\OnlineClassController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -56,4 +57,11 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('/class/details/{id}', [OnlineClassController::class, 'details'])->name('class.details');
     Route::get('/class/edit/{id}', [OnlineClassController::class, 'edit'])->name('class.edit');
     Route::post('/class/update/{id}', [OnlineClassController::class, 'update'])->name('class.update');
+
+    Route::get('/exam/create', [ExamController::class, 'create'])->name('exam.create');
+    Route::post('/exam/store', [ExamController::class, 'store'])->name('exam.store');
+    Route::get('/exam/list', [ExamController::class, 'getList'])->name('exam.list');
+    Route::get('/exam/edit/{id}', [ExamController::class, 'edit'])->name('exam.edit');
+    Route::get('/exam/details/{id}', [ExamController::class, 'details'])->name('exam.details');
+    Route::post('/exam/update/{id}', [ExamController::class, 'update'])->name('exam.update');
 });
