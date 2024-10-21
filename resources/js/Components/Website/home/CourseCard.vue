@@ -15,7 +15,7 @@ defineProps<{
         <div class="course-card__image">
             <img v-if="image" :src="image" alt="" />
             <!-- Will be removed in production -->
-            <img v-else src="../../../Images/login-img.jpg" alt="" />
+            <img v-else src="../../../assets/Images/login-img.jpg" alt="" />
         </div>
         <div>
             <p class="course-card__heading">

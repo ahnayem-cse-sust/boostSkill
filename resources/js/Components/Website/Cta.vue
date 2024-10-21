@@ -62,7 +62,7 @@ const onSlideChange = () => {
 </template>
 
 <style scoped lang="scss">
-@import "../../styles/responsive";
+@import "../../assets/styles/responsive";
 
 .home-cta {
     display: grid;

@@ -504,7 +504,7 @@ import BrandLogo from "../common/BrandLogo.vue";
 </template>
 
 <style lang="scss" scoped>
-@import "../../../styles/responsive";
+@import "../../../assets/styles/responsive";
 .footer,
 .footer__copyright {
     width: 100vw;

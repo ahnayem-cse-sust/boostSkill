@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../../../styles/responsive";
+@import "../../../assets/styles/responsive";
 
 .grid-col {
     // Loop through breakpoints imported from _responsive.scss to create responsive media queries

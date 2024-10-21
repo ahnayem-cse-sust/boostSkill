@@ -64,7 +64,7 @@ import StyledWrapper from "./StyledWrapper.vue";
 </template>
 
 <style lang="scss" scoped>
-@import "../../styles/responsive";
+@import "../../assets/styles/responsive";
 
 .about-us {
     display: grid;

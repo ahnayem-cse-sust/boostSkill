@@ -31,7 +31,7 @@ onMounted(() => {
 </template>
 
 <style scoped lang="scss">
-@import "../../styles/responsive";
+@import "../../assets/styles/responsive";
 
 .companies-showcase {
     display: flex;

@@ -38,7 +38,7 @@ import Tag from "@/Components/Website/Tag.vue";
 </template>
 
 <style lang="scss" scoped>
-@import "../../../styles/responsive";
+@import "../../../assets/styles/responsive";
 
 .home-faq {
     display: grid;

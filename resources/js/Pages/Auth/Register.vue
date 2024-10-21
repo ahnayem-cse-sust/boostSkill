@@ -24,7 +24,7 @@ const submit = () => {
             <div class="row">
                 <div class="col-sm-1 px-0 d-none d-sm-block"></div>
                 <div class="col-sm-6 px-0 d-none d-sm-block">
-                    <img src="../../Images/login-img.jpg"
+                    <img src="../../assets/Images/login-img.jpg"
                     alt="Login image" class="w-100 vh-100" style="object-fit: contain; object-position: left;">
                 </div>
                 <div class="col-sm-5 text-black">
