@@ -24,6 +24,9 @@ define("HAS_PERMISSION_NO", "N");
 define("MODULE_NAME_ADMIN", "Admin");
 define("MODULE_NAME_USER", "User");
 define("MODULE_NAME_COURSE", "Course");
+define("MODULE_NAME_CLASS", "OnlineClass");
+define("MODULE_NAME_EXAM", "Exam");
+define("MODULE_NAME_CERTIFICATE", "Certificate");
 define("MODULE_NAME_WEBSITE", "Website");
 
 define("COURSE_STATUS_ACTIVE", "ACTV");

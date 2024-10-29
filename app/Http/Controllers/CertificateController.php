@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ExamRequest;
-use App\Services\ExamService;
+use App\Http\Requests\CertificateRequest;
+use App\Services\CertificateService;
 use Inertia\Inertia;
 
-class ExamController extends Controller
+class CertificateController extends Controller
 {
     private $service;
-    private $viewPath='Admin/Exam/';
-    private $baseRoute='admin.exam.';
-    public function __construct(ExamService $service)
+    private $viewPath='Admin/Certificate/';
+    private $baseRoute='admin.certificate.';
+    public function __construct(CertificateService $service)
     {
         parent::__construct();
         $this->service = $service;
@@ -19,7 +19,7 @@ class ExamController extends Controller
     
     public function setModuleName()
     {
-        $this->moduleName = MODULE_NAME_EXAM;
+        $this->moduleName = MODULE_NAME_CERTIFICATE;
     }
 
     public function create(){
@@ -30,7 +30,7 @@ class ExamController extends Controller
         }
     }
 
-    public function store(ExamRequest $request)
+    public function store(CertificateRequest $request)
     {
         
         $validated = $request->validated();
@@ -86,7 +86,7 @@ class ExamController extends Controller
         }
     }
 
-    public function update($id, ExamRequest $request)
+    public function update($id, CertificateRequest $request)
     {
         // dd($id);
         if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
