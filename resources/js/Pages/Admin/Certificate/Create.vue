@@ -5,17 +5,11 @@ import InputError from '@/Components/Common/InputError.vue';
 
 const form = useForm({
     title: "",
-    course_id: "",
-    date_time: "",
-    duration: "",
     status: "",
-    platform: "",
-    url: "",
-    description: "",
 });
 
 const save = () => {
-    form.post(route("admin.class.store"), {
+    form.post(route("admin.certificate.store"), {
         onFinish: () => form.reset(),
     });
 };
@@ -23,14 +17,14 @@ const save = () => {
 </script>
 
 <template>
-    <Head title="Online Class" />
+    <Head title="Certificate" />
 
     <AdminLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Create Online Class</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Create New Certificate</h2>
         </template>
 
-        <h2>Create Online Class</h2>
+        <h2>Create New Certificate</h2>
 
         <form class="row g-3" @submit.prevent="save">
             <div class="col-md-12">
@@ -38,36 +32,7 @@ const save = () => {
                 <input v-model="form.title" type="text" class="form-control" id="title">
                 <InputError class="mt-2" :message="form.errors.title" />
             </div>
-            <div class="col-md-6">
-                <label for="course_id" class="form-label">Course Name</label>
-                <input v-model="form.course_id" type="text" class="form-control" id="course_id">
-                <InputError class="mt-2" :message="form.errors.course_id" />
-            </div>
-            <div class="col-md-6">
-                <label for="date_time" class="form-label">Date</label>
-                <input v-model="form.date_time" type="text" class="form-control" id="date_time">
-                <InputError class="mt-2" :message="form.errors.date_time" />
-            </div>
-            <div class="col-md-6">
-                <label for="duration" class="form-label">Duration</label>
-                <input v-model="form.duration" type="text" class="form-control" id="duration">
-            </div>
-            <div class="col-md-6">
-                <label for="status" class="form-label">Status</label>
-                <input v-model="form.status" type="text" class="form-control" id="status">
-            </div>
-            <div class="col-md-6">
-                <label for="platform" class="form-label">Platform</label>
-                <input v-model="form.platform" type="text" class="form-control" id="platform">
-            </div>
-            <div class="col-md-6">
-                <label for="url" class="form-label">Url</label>
-                <input v-model="form.url" type="text" class="form-control" id="url">
-            </div>
-            <div class="col-md-6">
-                <label for="description" class="form-label">Description</label>
-                <textarea v-model="form.description" rows="5" class="form-control" id="description"></textarea>
-            </div>
+            
 
             <div class="col-12">
                 <button type="submit" class="btn btn-primary">Submit</button>

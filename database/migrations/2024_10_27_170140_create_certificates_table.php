@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('sub_title')->nullable();
             $table->string('description')->nullable();
             $table->string('signature')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

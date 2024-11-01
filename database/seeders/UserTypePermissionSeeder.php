@@ -133,6 +133,8 @@ class UserTypePermissionSeeder extends Seeder
 
         ];
 
+        DB::table('user_type_permissions')->truncate();
+
         foreach($modulePermissions as $moduleKey=>$module){
             foreach($module as $userTypeKey=>$userType){
                 foreach($userType as $permission){

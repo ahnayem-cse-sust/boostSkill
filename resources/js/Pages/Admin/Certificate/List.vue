@@ -12,14 +12,14 @@ defineProps({
 </script>
 
 <template>
-    <Head title="Courses" />
+    <Head title="Certificate" />
 
     <AdminLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Create Course</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Certificate List</h2>
         </template>
 
-        <h2>All Classes</h2>
+        <h2>All Certificate</h2>
 
         <table class="table">
         <thead>
@@ -40,8 +40,8 @@ defineProps({
             <td>{{ d.teacher_id }}</td>
             <td>{{ d.price }}</td> 
             <td>
-                <a :href="route('admin.class.details',d.id)">details</a>
-                <a :href="route('admin.class.edit',d.id)">edit</a>
+                <a :href="route('admin.certificate.details',d.id)">details</a>
+                <a :href="route('admin.certificate.edit',d.id)">edit</a>
             </td> 
             </tr>
         </tbody>
