@@ -12,20 +12,20 @@ class UserTypePermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        $userTypes = [
-            ADMIN_TYPE_ADMIN,
-            ADMIN_TYPE_MANAGER,
-            ADMIN_TYPE_ACCOUNTANT,
-            USER_TYPE_TEACHER,
-            USER_TYPE_STUDENT
-        ];
+        // $userTypes = [
+        //     ADMIN_TYPE_ADMIN,
+        //     ADMIN_TYPE_MANAGER,
+        //     ADMIN_TYPE_ACCOUNTANT,
+        //     USER_TYPE_TEACHER,
+        //     USER_TYPE_STUDENT
+        // ];
 
-        $permissionTypes =[
-            PERMISSION_TYPE_READ,
-            PERMISSION_TYPE_CREATE,
-            PERMISSION_TYPE_UPDATE,
-            PERMISSION_TYPE_DELETE,
-        ];
+        // $permissionTypes =[
+        //     PERMISSION_TYPE_READ,
+        //     PERMISSION_TYPE_CREATE,
+        //     PERMISSION_TYPE_UPDATE,
+        //     PERMISSION_TYPE_DELETE,
+        // ];
 
         $modulePermissions = [
             MODULE_NAME_ADMIN => [
@@ -70,8 +70,70 @@ class UserTypePermissionSeeder extends Seeder
                     PERMISSION_TYPE_READ,
                 ]
             ],
+            MODULE_NAME_EXAM => [
+                ADMIN_TYPE_ADMIN =>[
+                    PERMISSION_TYPE_READ,
+                    PERMISSION_TYPE_CREATE,
+                    PERMISSION_TYPE_UPDATE,
+                    PERMISSION_TYPE_DELETE
+                    ],
+                ADMIN_TYPE_MANAGER=>[
+                    PERMISSION_TYPE_READ,
+                    PERMISSION_TYPE_CREATE,
+                    PERMISSION_TYPE_UPDATE,
+                    PERMISSION_TYPE_DELETE
+                ],
+                USER_TYPE_TEACHER=>[
+                    PERMISSION_TYPE_READ,
+                ],
+                USER_TYPE_STUDENT=>[
+                    PERMISSION_TYPE_READ,
+                ]
+            ],
+            MODULE_NAME_CLASS => [
+                ADMIN_TYPE_ADMIN =>[
+                    PERMISSION_TYPE_READ,
+                    PERMISSION_TYPE_CREATE,
+                    PERMISSION_TYPE_UPDATE,
+                    PERMISSION_TYPE_DELETE
+                    ],
+                ADMIN_TYPE_MANAGER=>[
+                    PERMISSION_TYPE_READ,
+                    PERMISSION_TYPE_CREATE,
+                    PERMISSION_TYPE_UPDATE,
+                    PERMISSION_TYPE_DELETE
+                ],
+                USER_TYPE_TEACHER=>[
+                    PERMISSION_TYPE_READ,
+                ],
+                USER_TYPE_STUDENT=>[
+                    PERMISSION_TYPE_READ,
+                ]
+            ],
+            MODULE_NAME_CERTIFICATE => [
+                ADMIN_TYPE_ADMIN =>[
+                    PERMISSION_TYPE_READ,
+                    PERMISSION_TYPE_CREATE,
+                    PERMISSION_TYPE_UPDATE,
+                    PERMISSION_TYPE_DELETE
+                    ],
+                ADMIN_TYPE_MANAGER=>[
+                    PERMISSION_TYPE_READ,
+                    PERMISSION_TYPE_CREATE,
+                    PERMISSION_TYPE_UPDATE,
+                    PERMISSION_TYPE_DELETE
+                ],
+                USER_TYPE_TEACHER=>[
+                    PERMISSION_TYPE_READ,
+                ],
+                USER_TYPE_STUDENT=>[
+                    PERMISSION_TYPE_READ,
+                ]
+            ],
 
         ];
+
+        DB::table('user_type_permissions')->truncate();
 
         foreach($modulePermissions as $moduleKey=>$module){
             foreach($module as $userTypeKey=>$userType){

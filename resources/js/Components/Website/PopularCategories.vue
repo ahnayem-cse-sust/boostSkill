@@ -3,8 +3,8 @@ import Button from "@/Components/Button.vue";
 import Tag from "@/Components/Website/Tag.vue";
 import { ref } from "vue";
 
-import { isOdd } from "@/utils/helpers";
-import { getBreakpointValue } from "@/utils/responsive";
+import { isOdd } from "@/assets/utils/helpers";
+import { getBreakpointValue } from "@/assets/utils/responsive";
 import { Carousel, Slide } from "vue3-carousel";
 import "vue3-carousel/dist/carousel.css";
 import PopularCategoryItem from "./PopularCategoryItem.vue";
@@ -101,7 +101,7 @@ window.addEventListener("resize", onResize);
 </template>
 
 <style lang="scss" scoped>
-@import "../../styles/responsive";
+@import "../../assets/styles/responsive";
 
 .popular-categories {
     display: flex;

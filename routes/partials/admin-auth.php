@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\OnlineClassController;
+use App\Http\Controllers\CertificateController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -64,4 +65,11 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('/exam/edit/{id}', [ExamController::class, 'edit'])->name('exam.edit');
     Route::get('/exam/details/{id}', [ExamController::class, 'details'])->name('exam.details');
     Route::post('/exam/update/{id}', [ExamController::class, 'update'])->name('exam.update');
+
+    Route::get('/certificate/create', [CertificateController::class, 'create'])->name('certificate.create');
+    Route::post('/certificate/store', [CertificateController::class, 'store'])->name('certificate.store');
+    Route::get('/certificate/list', [CertificateController::class, 'getList'])->name('certificate.list');
+    Route::get('/certificate/edit/{id}', [CertificateController::class, 'edit'])->name('certificate.edit');
+    Route::get('/certificate/details/{id}', [CertificateController::class, 'details'])->name('certificate.details');
+    Route::post('/certificate/update/{id}', [CertificateController::class, 'update'])->name('certificate.update');
 });

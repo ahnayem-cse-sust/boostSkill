@@ -32,7 +32,7 @@ import Button from "../Button.vue";
 </template>
 
 <style lang="scss" scoped>
-@import "../../styles/responsive";
+@import "../../assets/styles/responsive";
 .hero {
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@ import Button from "../Button.vue";
 
     background: linear-gradient(hsl(0, 0%, 0%, 0.8), hsl(0, 0%, 0%, 0.2)),
         linear-gradient(hsl(0, 0%, 0%, 0.2), hsl(0, 0%, 0%, 0.6)),
-        url("../../Images/home-hero.jpg");
+        url("../../assets/Images/home-hero.jpg");
 
     background-position: center;
     background-size: cover;

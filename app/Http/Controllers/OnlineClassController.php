@@ -17,7 +17,7 @@ class OnlineClassController extends Controller
     
     public function setModuleName()
     {
-        $this->moduleName = MODULE_NAME_COURSE;
+        $this->moduleName = MODULE_NAME_CLASS;
     }
 
     public function create(){

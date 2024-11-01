@@ -25,7 +25,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import "../../styles/responsive";
+@import "../../assets/styles/responsive";
 
 .achievements {
     display: flex;

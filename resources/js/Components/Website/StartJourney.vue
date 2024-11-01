@@ -29,7 +29,7 @@ const getImageUrl = (relativePath) => {
             title="Become a Teacher"
             description="Join our team to inspire students, share your knowledge, and
                 shape the future."
-            :image="getImageUrl('../../Images/become-a-teacher.png')"
+            :image="getImageUrl('../../assets/Images/become-a-teacher.png')"
             style="margin-block: 1rem"
             size="1.25x"
         />
@@ -38,7 +38,7 @@ const getImageUrl = (relativePath) => {
             description="Join our team to inspire students, share your knowledge, and
                 shape the future.Join our team to inspire students, share your knowledge, and
                 shape the future."
-            :image="getImageUrl('../../Images/become-a-student.png')"
+            :image="getImageUrl('../../assets/Images/become-a-student.png')"
             style="margin-block: 1rem"
             size="1.25x"
             rtl
