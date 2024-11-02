@@ -27,42 +27,24 @@ class UserTypePermissionSeeder extends Seeder
         //     PERMISSION_TYPE_DELETE,
         // ];
 
+        $allPermissions = [
+            PERMISSION_TYPE_READ,
+            PERMISSION_TYPE_CREATE,
+            PERMISSION_TYPE_UPDATE,
+            PERMISSION_TYPE_DELETE
+        ];
+
         $modulePermissions = [
             MODULE_NAME_ADMIN => [
-                ADMIN_TYPE_ADMIN =>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                ]
+                ADMIN_TYPE_ADMIN => $allPermissions
             ],
             MODULE_NAME_USER => [
-                ADMIN_TYPE_ADMIN =>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                    ],
-                ADMIN_TYPE_MANAGER=>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                ]
+                ADMIN_TYPE_ADMIN => $allPermissions,
+                ADMIN_TYPE_MANAGER=> $allPermissions
             ],
             MODULE_NAME_COURSE => [
-                ADMIN_TYPE_ADMIN =>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                    ],
-                ADMIN_TYPE_MANAGER=>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                ],
+                ADMIN_TYPE_ADMIN => $allPermissions,
+                ADMIN_TYPE_MANAGER=> $allPermissions,
                 USER_TYPE_TEACHER=>[
                     PERMISSION_TYPE_READ,
                 ],
@@ -71,38 +53,24 @@ class UserTypePermissionSeeder extends Seeder
                 ]
             ],
             MODULE_NAME_EXAM => [
-                ADMIN_TYPE_ADMIN =>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                    ],
-                ADMIN_TYPE_MANAGER=>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                ],
-                USER_TYPE_TEACHER=>[
-                    PERMISSION_TYPE_READ,
-                ],
+                ADMIN_TYPE_ADMIN => $allPermissions,
+                ADMIN_TYPE_MANAGER=> $allPermissions,
+                USER_TYPE_TEACHER=> $allPermissions,
                 USER_TYPE_STUDENT=>[
                     PERMISSION_TYPE_READ,
                 ]
             ],
             MODULE_NAME_CLASS => [
-                ADMIN_TYPE_ADMIN =>[
+                ADMIN_TYPE_ADMIN => $allPermissions,
+                ADMIN_TYPE_MANAGER=> $allPermissions,
+                USER_TYPE_TEACHER=> $allPermissions,
+                USER_TYPE_STUDENT=>[
                     PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                    ],
-                ADMIN_TYPE_MANAGER=>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                ],
+                ]
+            ],
+            MODULE_NAME_CERTIFICATE => [
+                ADMIN_TYPE_ADMIN => $allPermissions,
+                ADMIN_TYPE_MANAGER=> $allPermissions,
                 USER_TYPE_TEACHER=>[
                     PERMISSION_TYPE_READ,
                 ],
@@ -110,22 +78,10 @@ class UserTypePermissionSeeder extends Seeder
                     PERMISSION_TYPE_READ,
                 ]
             ],
-            MODULE_NAME_CERTIFICATE => [
-                ADMIN_TYPE_ADMIN =>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                    ],
-                ADMIN_TYPE_MANAGER=>[
-                    PERMISSION_TYPE_READ,
-                    PERMISSION_TYPE_CREATE,
-                    PERMISSION_TYPE_UPDATE,
-                    PERMISSION_TYPE_DELETE
-                ],
-                USER_TYPE_TEACHER=>[
-                    PERMISSION_TYPE_READ,
-                ],
+            MODULE_NAME_ASSIGNMENT => [
+                ADMIN_TYPE_ADMIN => $allPermissions,
+                ADMIN_TYPE_MANAGER=> $allPermissions,
+                USER_TYPE_TEACHER=> $allPermissions,
                 USER_TYPE_STUDENT=>[
                     PERMISSION_TYPE_READ,
                 ]

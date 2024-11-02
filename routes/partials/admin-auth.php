@@ -8,6 +8,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\OnlineClassController;
 use App\Http\Controllers\CertificateController;
+use App\Http\Controllers\AssignmentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -72,4 +73,11 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('/certificate/edit/{id}', [CertificateController::class, 'edit'])->name('certificate.edit');
     Route::get('/certificate/details/{id}', [CertificateController::class, 'details'])->name('certificate.details');
     Route::post('/certificate/update/{id}', [CertificateController::class, 'update'])->name('certificate.update');
+
+    Route::get('/assignment/create', [AssignmentController::class, 'create'])->name('assignment.create');
+    Route::post('/assignment/store', [AssignmentController::class, 'store'])->name('assignment.store');
+    Route::get('/assignment/list', [AssignmentController::class, 'getList'])->name('assignment.list');
+    Route::get('/assignment/edit/{id}', [AssignmentController::class, 'edit'])->name('assignment.edit');
+    Route::get('/assignment/details/{id}', [AssignmentController::class, 'details'])->name('assignment.details');
+    Route::post('/assignment/update/{id}', [AssignmentController::class, 'update'])->name('assignment.update');
 });
