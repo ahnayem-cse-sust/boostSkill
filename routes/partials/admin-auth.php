@@ -79,5 +79,6 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('/assignment/list', [AssignmentController::class, 'getList'])->name('assignment.list');
     Route::get('/assignment/edit/{id}', [AssignmentController::class, 'edit'])->name('assignment.edit');
     Route::get('/assignment/details/{id}', [AssignmentController::class, 'details'])->name('assignment.details');
-    Route::post('/assignment/update/{id}', [AssignmentController::class, 'update'])->name('assignment.update');
+    Route::put('/assignment/update/{id}', [AssignmentController::class, 'update'])->name('assignment.update');
+    Route::delete('/assignment/delete/{item}', [AssignmentController::class, 'delete'])->name('assignment.delete');
 });

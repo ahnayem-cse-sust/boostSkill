@@ -8,7 +8,15 @@ defineProps({
     },
 });
 
+const form = useForm({});
 
+const deleteItem = (id) => {
+    if (confirm("Are you sure you want to move this to trash")) {
+        form.delete(route("admin.assignment.delete", { id: id }), {
+            preserveScroll: true,
+        });
+    }
+};
 </script>
 
 <template>
@@ -42,6 +50,7 @@ defineProps({
             <td>
                 <a :href="route('admin.assignment.details',d.id)">details</a>
                 <a :href="route('admin.assignment.edit',d.id)">edit</a>
+                <a :href="route('admin.assignment.delete',d.id)">delete</a>
             </td> 
             </tr>
         </tbody>

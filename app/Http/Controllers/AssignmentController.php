@@ -99,4 +99,19 @@ class AssignmentController extends Controller
             return $this->unauthorizedPageResponse();
         }
     }
+
+    public function delete(AssignmentRequest $request)
+    {
+        if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
+            $response = $this->service->deleteItem($id,$request->all());
+            return redirect()->route($this->baseRoute.'list')->with([
+                'message' => $response['message'],
+                'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
+            ]);
+        } else{
+            return $this->unauthorizedPageResponse();
+        }
+        $event->delete();
+        return redirect()->back();
+    }
 }
