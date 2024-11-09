@@ -100,10 +100,10 @@ class AssignmentController extends Controller
         }
     }
 
-    public function delete(AssignmentRequest $request)
+    public function delete($id)
     {
-        if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
-            $response = $this->service->deleteItem($id,$request->all());
+        if($this->hasPermission(PERMISSION_TYPE_DELETE)){
+            $response = $this->service->deleteItem($id);
             return redirect()->route($this->baseRoute.'list')->with([
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'
@@ -111,7 +111,6 @@ class AssignmentController extends Controller
         } else{
             return $this->unauthorizedPageResponse();
         }
-        $event->delete();
         return redirect()->back();
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\ExamController;
 use App\Http\Controllers\OnlineClassController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\EnrollmentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -80,5 +81,13 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('/assignment/edit/{id}', [AssignmentController::class, 'edit'])->name('assignment.edit');
     Route::get('/assignment/details/{id}', [AssignmentController::class, 'details'])->name('assignment.details');
     Route::put('/assignment/update/{id}', [AssignmentController::class, 'update'])->name('assignment.update');
-    Route::delete('/assignment/delete/{item}', [AssignmentController::class, 'delete'])->name('assignment.delete');
+    Route::delete('/assignment/delete/{id}', [AssignmentController::class, 'delete'])->name('assignment.delete');
+
+    Route::get('/enrollment/create', [EnrollmentController::class, 'create'])->name('enrollment.create');
+    Route::post('/enrollment/store', [EnrollmentController::class, 'store'])->name('enrollment.store');
+    Route::get('/enrollment/list', [EnrollmentController::class, 'getList'])->name('enrollment.list');
+    Route::get('/enrollment/edit/{id}', [EnrollmentController::class, 'edit'])->name('enrollment.edit');
+    Route::get('/enrollment/details/{id}', [EnrollmentController::class, 'details'])->name('enrollment.details');
+    Route::put('/enrollment/update/{id}', [EnrollmentController::class, 'update'])->name('enrollment.update');
+    Route::delete('/enrollment/delete/{item}', [EnrollmentController::class, 'delete'])->name('enrollment.delete');
 });

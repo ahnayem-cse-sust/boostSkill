@@ -1,6 +1,6 @@
 <script setup>
 import AdminLayout from '@/Layouts/AdminLayout.vue';
-import { Head } from '@inertiajs/vue3';
+import { Head,useForm } from '@inertiajs/vue3';
 
 defineProps({
     data: {
@@ -50,7 +50,7 @@ const deleteItem = (id) => {
             <td>
                 <a :href="route('admin.assignment.details',d.id)">details</a>
                 <a :href="route('admin.assignment.edit',d.id)">edit</a>
-                <a :href="route('admin.assignment.delete',d.id)">delete</a>
+                <a href=# @click="deleteItem(d.id)">delete</a>
             </td> 
             </tr>
         </tbody>

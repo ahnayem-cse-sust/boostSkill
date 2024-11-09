@@ -3,10 +3,10 @@
 
 namespace App\Services;
 
-use App\Models\Assignment;
+use App\Models\Enrollment;
 
 
-class AssignmentService extends BaseService
+class EnrollmentService extends BaseService
 {
 
     public function __construct()
@@ -15,14 +15,14 @@ class AssignmentService extends BaseService
     }
 
     public function storeItem($data){
-        if(Assignment::create($data)){
+        if(Enrollment::create($data)){
             return $this->success('Course Created Successfully');
         }
         return $this->failure('Someting Went Wrong!!');
     }
 
     public function getAllItem(){
-        $data = Assignment::where(function($q){
+        $data = Enrollment::where(function($q){
           $q->where('status',COURSE_STATUS_ACTIVE)
             ->orWhere('status',null);
         })->get();
@@ -31,23 +31,15 @@ class AssignmentService extends BaseService
     }
 
     public function getItem($id){
-        $data = Assignment::where('id',$id)->get();
+        $data = Enrollment::where('id',$id)->get();
 
         return $this->success('Course successfully retrived',$data);
     }
 
     public function updateItem($id, $updated_data){
-        $data = Assignment::where('id',$id)->first();
+        $data = Enrollment::where('id',$id)->first();
         if($data->update($updated_data)){
             return $this->success($data['title'].' Updated Successfully');
-        }
-        return $this->failure('Someting Went Wrong!!');
-    }
-
-    public function deleteItem($id){
-        $data = Assignment::where('id',$id)->first();
-        if($data->delete()){
-            return $this->success($data['title'].' Deleted Successfully');
         }
         return $this->failure('Someting Went Wrong!!');
     }
