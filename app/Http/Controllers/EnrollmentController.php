@@ -101,10 +101,10 @@ class EnrollmentController extends Controller
         }
     }
 
-    public function delete(EnrollmentRequest $request)
+    public function delete($id)
     {
         if($this->hasPermission(PERMISSION_TYPE_UPDATE)){
-            $response = $this->service->deleteItem($id,$request->all());
+            $response = $this->service->deleteItem($id);
             return redirect()->route($this->baseRoute.'list')->with([
                 'message' => $response['message'],
                 'class' => $response['success'] ? 'alert alert-success' : 'alert alert-danger'

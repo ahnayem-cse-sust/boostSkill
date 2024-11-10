@@ -44,5 +44,13 @@ class EnrollmentService extends BaseService
         return $this->failure('Someting Went Wrong!!');
     }
 
+    public function deleteItem($id){
+        $data = Enrollment::where('id',$id)->first();
+        if($data->delete()){
+            return $this->success($data['title'].' Deleted Successfully');
+        }
+        return $this->failure('Someting Went Wrong!!');
+    }
+
 
 }

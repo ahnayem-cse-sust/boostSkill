@@ -86,6 +86,14 @@ class UserTypePermissionSeeder extends Seeder
                     PERMISSION_TYPE_READ,
                 ]
             ],
+            MODULE_NAME_ENROLLMENT => [
+                ADMIN_TYPE_ADMIN => $allPermissions,
+                ADMIN_TYPE_MANAGER=> $allPermissions,
+                USER_TYPE_TEACHER=> $allPermissions,
+                USER_TYPE_STUDENT=>[
+                    PERMISSION_TYPE_READ,
+                ]
+            ],
 
         ];
 
