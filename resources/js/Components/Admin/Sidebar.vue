@@ -127,6 +127,24 @@
           </ul>
         </div>
       </li>
+      <li>
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#payment-collapse" aria-expanded="false">
+          <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+          <span class="sidebar-ttl">Payment</span>
+        </button>
+        <div class="collapse" id="payment-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a :href="route('admin.payment.create')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">New Payment</span>
+            </a></li>
+            <li><a :href="route('admin.payment.list')" class="link-dark rounded">
+              <font-awesome-icon class="sidebar-icon" :icon="['fas', 'eye']" />
+              <span class="sidebar-ttl">All Payment</span>
+            </a></li>
+          </ul>
+        </div>
+      </li>
 
     </ul>
     <hr>

@@ -10,6 +10,7 @@ use App\Http\Controllers\OnlineClassController;
 use App\Http\Controllers\CertificateController;
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -89,5 +90,13 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::get('/enrollment/edit/{id}', [EnrollmentController::class, 'edit'])->name('enrollment.edit');
     Route::get('/enrollment/details/{id}', [EnrollmentController::class, 'details'])->name('enrollment.details');
     Route::put('/enrollment/update/{id}', [EnrollmentController::class, 'update'])->name('enrollment.update');
-    Route::delete('/enrollment/delete/{item}', [EnrollmentController::class, 'delete'])->name('enrollment.delete');
+    Route::delete('/enrollment/delete/{id}', [EnrollmentController::class, 'delete'])->name('enrollment.delete');
+
+    Route::get('/payment/create', [PaymentController::class, 'create'])->name('payment.create');
+    Route::post('/payment/store', [PaymentController::class, 'store'])->name('payment.store');
+    Route::get('/payment/list', [PaymentController::class, 'getList'])->name('payment.list');
+    Route::get('/payment/edit/{id}', [PaymentController::class, 'edit'])->name('payment.edit');
+    Route::get('/payment/details/{id}', [PaymentController::class, 'details'])->name('payment.details');
+    Route::put('/payment/update/{id}', [PaymentController::class, 'update'])->name('payment.update');
+    Route::delete('/payment/delete/{id}', [PaymentController::class, 'delete'])->name('payment.delete');
 });
